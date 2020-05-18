@@ -4,6 +4,10 @@ header {
   justify-content: center;
   align-items: center;
   height: 120px;
+  text-align: center;
+  @media screen and (max-width: 1107px) {
+    height: 200px;
+  }
   h1 {
     margin-right: 10%;
     font-size: 3rem;
