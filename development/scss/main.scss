@@ -14,5 +14,22 @@
 @import "./module/logo";
 @import "./module/button";
 
-// Layout
-@import "./layout/header";
+// Layout landingpage
+@import "./layout/landing-page/header";
+@import "./layout/landing-page/slider";
+@import "./layout/landing-page/action";
+@import "./layout/landing-page/about-app";
+@import "./layout/landing-page/form";
+@import "./layout/landing-page/about-author";
+@import "./layout/landing-page/footer";
+
+// Layout app
+@import "./layout/app/header";
+@import "./layout/app/sidebar";
+@import "./layout/app/dashboard";
+@import "./layout/app/empty";
+@import "./layout/app/entry";
+@import "./layout/app/recipe";
+@import "./layout/app/recipes-list";
+@import "./layout/app/schedule";
+@import "./layout/app/schedules-list";
