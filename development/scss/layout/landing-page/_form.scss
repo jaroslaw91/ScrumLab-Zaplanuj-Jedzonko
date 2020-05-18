@@ -43,6 +43,12 @@ section.form {
         color: $white-color;
         font-weight: 600;
         font-size: 1rem;
+        &:hover {
+          border: 1px solid $white-color;
+        }
+        &:active {
+          border-width: 2px;
+        }
       }
     }
   }
