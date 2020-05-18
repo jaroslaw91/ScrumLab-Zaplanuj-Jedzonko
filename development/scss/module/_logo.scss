@@ -1,15 +1,13 @@
 header {
   h1 {
-    .logo {
-      font-family: Charmonman;
-      #first {
-        color: $white-color;
-        font-weight: 100;
-      }
-      #second {
-        color: $light-orange-color;
-        font-weight: 700;
-      }
+    font-family: Charmonman;
+    #first {
+      color: $white-color;
+      font-weight: 100;
+    }
+    #second {
+      color: $light-orange-color;
+      font-weight: 700;
     }
   }
 }
