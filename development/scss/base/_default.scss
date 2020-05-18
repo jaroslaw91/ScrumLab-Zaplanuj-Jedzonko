@@ -1,0 +1,13 @@
+body {
+    background-color: $bg-color;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
