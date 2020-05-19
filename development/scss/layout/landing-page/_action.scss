@@ -1,11 +1,13 @@
-section.callToAction {
+section.call-to-action {
     background-color: $cumstom-grey-color;
-    height: 25vh;
+    height: 14rem;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin: 0 auto;
     div.container {
+        width: 1300px;
         display: flex;
         justify-content: space-between;
         align-items: center;
