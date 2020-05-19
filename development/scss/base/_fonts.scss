@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "Charmonman";
+    src: url("./../fonts/charmonman.woff2") format("woff2"),
+         url("./../fonts/charmonman.woff2") format("woff");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("./../fonts/opensans.woff2") format("woff2"),
+         url("./../fonts/opensans.woff2") format("woff");
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
