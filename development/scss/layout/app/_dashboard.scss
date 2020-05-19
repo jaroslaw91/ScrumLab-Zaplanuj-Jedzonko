@@ -1,4 +1,4 @@
-.app-container{
+.app-container {
   display: flex;
   flex-direction: row;
   height: calc(100vh - 100px);
@@ -37,11 +37,9 @@
 
   p {
     font-size: 1.5em;
-    color: $white-color
+    color: $white-color;
   }
-
 }
-
 
 .sidebar {
   background-color: $cumstom-grey-color;
@@ -62,7 +60,7 @@
 
     li:hover {
       font-weight: 600;
-      border-left: 3px solid $custom-orange-color
+      border-left: 3px solid $custom-orange-color;
     }
 
     li:hover::after {
