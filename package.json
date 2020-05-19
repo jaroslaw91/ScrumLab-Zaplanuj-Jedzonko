@@ -16,12 +16,14 @@
     "url": "https://github.com/CodersLab-core/FER_SCRUM_LAB/issues"
   },
   "homepage": "https://github.com/CodersLab-core/FER_SCRUM_LAB#readme",
-  "dependencies": {
+  "devDependencies": {
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5",
+    "gulp-sourcemaps": "^2.6.5"
+  },
+  "dependencies": {
     "node-sass": "^4.14.1"
   }
 }
