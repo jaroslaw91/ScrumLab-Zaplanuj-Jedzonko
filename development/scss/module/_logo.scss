@@ -1,5 +1,7 @@
 header {
   h1 {
+    display: flex;
+    flex-direction: row;
     font-family: Charmonman;
     #first {
       color: $white-color;
