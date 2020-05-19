@@ -1,6 +1,5 @@
 .slider {
   background-color: $white-color;
-  color: $dark-grey-color;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -11,7 +10,10 @@
   width: 100%;
   margin: 0 auto;
 }
-
+.left-arrow:hover,
+.right-arrow:hover {
+  cursor: pointer;
+}
 .slide {
   display: none;
   padding: 0 15%;
@@ -23,15 +25,16 @@
 
 .slide h3 {
   font-size: 3.5rem;
-
 }
-.fas{
+.fas {
   font-size: 3rem;
 }
 
 .slide p {
   font-size: 2.5rem;
 }
-.slide h3, .fas, .slide p{
+.slide h3,
+.fas,
+.slide p {
   text-align: center;
 }
