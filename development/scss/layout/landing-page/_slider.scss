@@ -10,7 +10,10 @@
   width: 100%;
   margin: 0 auto;
 }
-
+.left-arrow:hover,
+.right-arrow:hover {
+  cursor: pointer;
+}
 .slide {
   display: none;
   padding: 0 15%;

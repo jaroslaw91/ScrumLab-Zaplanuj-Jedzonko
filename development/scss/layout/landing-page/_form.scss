@@ -8,7 +8,7 @@ section.form {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 1200px;
+    width: 1300px;
     margin: 0 auto;
 
     h3 {
@@ -44,7 +44,8 @@ section.form {
         font-weight: 600;
         font-size: 1rem;
         &:hover {
-          border: 1px solid $white-color;
+          background-color: $light-orange-color;
+          cursor: pointer;
         }
         &:active {
           border-width: 2px;
