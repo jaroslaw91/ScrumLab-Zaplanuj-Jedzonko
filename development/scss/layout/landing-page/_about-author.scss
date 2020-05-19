@@ -18,11 +18,14 @@ section.about_author {
     article {
       display: flex;
       flex-direction: column;
-      flex-basis: 476px;
+      flex-basis: 776px;
       h3 {
         margin-bottom: 10px;
         font-weight: normal;
-        font-size: 30px;
+        font-size: 2.2em;
+      }
+      p {
+        font-size: 1.7em;
       }
     }
   }
