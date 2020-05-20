@@ -16,8 +16,10 @@
   <body>
     <header class="header-app">
       <h1>
-        <span id="first">Zaplanuj</span>
-        <span id="second">Jedzonko</span>
+        <a href="index.html">
+          <span id="first">Zaplanuj</span>
+          <span id="second">Jedzonko</span>
+        </a>
       </h1>
       <div class="header-user">
         <p class="user-name">Imię</p>
@@ -36,7 +38,7 @@
       </section>
 
       <section class="main-app-section">
-        <div class="app-first-time">
+        <!-- <div class="app-first-time">
           <div class="container">
             <h1>Witaj,</h1>
             <p>
@@ -49,6 +51,51 @@
             <p>
               Podaj nam swoje imię, a my zorganizujemy dla Ciebie naszą aplikację :)
             </p>
+          </div>
+        </div> -->
+        <div class="container">
+          <div class="buttons-left">
+            <div class="widget-button">
+              <div class="button-add-recipe">
+                <a href="recipes.html" class="btn-add-recipe">
+                  <div class="widget-recipe">
+                    <i class="far fa-plus-square"></i>
+                    <p>dodaj przepis</p>
+                  </div>
+                </a>
+              </div>
+              <div class="button-add-schedule">
+                <a href="schedules.html" class="btn-add-schedule">
+                  <div class="widget-recipe">
+                    <i class="far fa-plus-square"></i>
+                    <p>dodaj plan</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="widget-nofications">
+            <div class="nofication">
+              <p>
+                <i class="fas fa-info-circle widget-icon"></i> Masz już
+                <span>0 </span>przepisów, nieźle!
+              </p>
+              <i class="fas fa-window-close" id="widget-info-close"></i>
+            </div>
+            <div class="nofication yellow-noficat">
+              <p>
+                <i class="fas fa-exclamation-circle widget-icon"></i> Pamiętaj,
+                aby dodać plan!
+              </p>
+              <i class="fas fa-window-close" id="widget-warning-close"></i>
+            </div>
+            <div class="nofication green-noficat">
+              <p>
+                <i class="fas fa-check-circle widget-icon"></i> Świetnie, że
+                jesteś! Udanego planowania i smacznego! :)
+              </p>
+              <i class="fas fa-window-close" id="widget-success-close"></i>
+            </div>
           </div>
         </div>
       </section>

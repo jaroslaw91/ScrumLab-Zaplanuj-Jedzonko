@@ -75,3 +75,89 @@
     }
   }
 }
+
+section.main-app-section {
+  .container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-self: flex-start;
+    margin: 0 auto;
+    margin-top: 80px;
+    .buttons-left {
+      margin-left: 50px;
+      .widget-button {
+        display: flex;
+        justify-content: space-between;
+        width: 550px;
+        .button-add-recipe {
+          background-color: $white-color;
+          height: 200px;
+          width: 200px;
+          border: 1px dashed $green-color;
+        }
+        .button-add-schedule {
+          background-color: $white-color;
+          height: 200px;
+          width: 200px;
+          border: 1px dashed $green-color;
+        }
+      }
+    }
+    .widget-nofications {
+      margin-right: 70px;
+      display: flex;
+      flex-direction: column;
+
+      .nofication {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $white-color;
+        width: 900px;
+        height: 75px;
+        border: 1px dashed $blue-color;
+        color: $blue-color;
+        margin-bottom: 5px;
+        i {
+          font-size: 1.8rem;
+        }
+        p {
+          font-size: 1.8rem;
+        }
+        .fas {
+          margin-left: 5px;
+        }
+        .fa-window-close {
+          margin-top: -20px;
+          margin-right: 5px;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+.yellow-noficat {
+  border: 1px dashed $yellow-color !important;
+  color: $yellow-color !important;
+}
+.green-noficat {
+  border: 1px dashed $green-color !important;
+  color: $green-color !important;
+}
+.widget-recipe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $green-color;
+  i {
+    margin-top: 30%;
+    font-size: 3.6em;
+    color: $green-color;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
