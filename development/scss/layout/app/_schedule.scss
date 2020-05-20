@@ -1,0 +1,74 @@
+.main-app-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  .schedule-view {
+    background: $white-color;
+    border: 1px dashed $dark-grey-color;
+    padding: 0 2em;
+    h3 {
+      text-align: center;
+      font-size: 1.4em;
+      padding: 1em;
+    }
+
+    table {
+      text-align: left;
+      border-collapse: collapse;
+      tr th {
+        border-bottom: 0.5px solid $light-grey-color;
+        border-top: 0.5px solid $light-grey-color;
+        color: $dark-grey-color;
+        font-size: 1em;
+        padding: 0.7em;
+        @media screen and (min-width: 1300px) {
+          font-size: 1.5rem;
+        }
+      }
+      tr td {
+        border-bottom: 0.5px solid $light-grey-color;
+        color: $light-grey-color;
+        padding: 0.8em;
+        font-size: 0.8em;
+        @media screen and (min-width: 1300px) {
+          font-size: 1.1rem;
+          padding: 1em;
+        }
+      }
+    }
+    h3 {
+      color: $custom-orange-color;
+    }
+
+    .schedule-change-page {
+      display: flex;
+      justify-content: space-between;
+      color: $custom-orange-color;
+      font-size: 1em;
+      font-weight: lighter;
+      padding: 1em 0;
+
+      .schedule-click-left{
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        i{
+          font-size: 1.5em;
+          padding: .4em;
+        }
+      }
+      .schedule-click-right{
+        display: flex;
+        align-items: center;
+        i{
+          font-size: 1.5em;
+          padding: .4em;
+        }
+      }
+    }
+  }
+}
+
