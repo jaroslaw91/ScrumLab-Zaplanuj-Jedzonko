@@ -1,14 +1,5 @@
-@font-face {
-    font-family: "Charmonman";
-    src: url("./../fonts/charmonman.woff2") format("woff2"),
-         url("./../fonts/charmonman.woff2") format("woff");
-}
-
-@font-face {
-    font-family: "Open Sans";
-    src: url("./../fonts/opensans.woff2") format("woff2"),
-         url("./../fonts/opensans.woff2") format("woff");
-}
+@import url("https://fonts.googleapis.com/css2?family=Charmonman&display=swap=latin-ext");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&subset&display=swap=latin-ext");
 
 body {
     font-family: 'Open Sans', sans-serif;
