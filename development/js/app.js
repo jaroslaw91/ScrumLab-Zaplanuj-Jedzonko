@@ -4,6 +4,7 @@ const nameBtn = document.querySelector(".name-local-storage > button");
 const user = document.querySelector(".user-name");
 const appFirstTime = document.querySelector(".app-first-time");
 const appDesktop = document.querySelector(".app-desktop");
+const mainApp = document.querySelector(".main-app-section-content");
 
 nameBtn.addEventListener("click", function (e) {
     let name = nameInput.value;
@@ -19,11 +20,17 @@ if (localStorage.savedName == null) {
     user.innerText = "Imię"
     appFirstTime.style.display = "flex";
     appDesktop.style.display = "none";
+    mainApp.style.border = "1px dashed $light-grey-color";
+    mainApp.style.backgroundColor = "$white-color";
+    mainApp.style.alignItems = "center";
 }
 else {
     user.innerText = localStorage.savedName;
     appFirstTime.style.display = "none";
     appDesktop.style.display = "flex";
+    mainApp.style.border = "none";
+    mainApp.style.background = "none";
+    mainApp.style.alignItems = "flex-start";
 }
 
 
