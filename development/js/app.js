@@ -8,8 +8,8 @@ const appDesktop = document.querySelector(".app-desktop");
 nameBtn.addEventListener("click", function (e) {
     let name = nameInput.value;
     if (name.trim() && !Number(name) && name.length > 1) {
-        var userName = nameInput.value;
-        localStorage.setItem('savedName', userName);
+        var userName = name;
+        localStorage.setItem("savedName", userName);
     }
     else {
         alert("Podaj poprawnie swoję imię :)");
