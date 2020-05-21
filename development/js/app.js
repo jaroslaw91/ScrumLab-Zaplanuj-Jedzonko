@@ -1,3 +1,35 @@
+// Name local storage 
+const nameInput = document.querySelector(".name-local-storage > input");
+const nameBtn = document.querySelector(".name-local-storage > button");
+const user = document.querySelector(".user-name");
+const appFirstTime = document.querySelector(".app-first-time");
+const appDesktop = document.querySelector(".app-desktop");
+
+nameBtn.addEventListener("click", function (e) {
+    let name = nameInput.value;
+    if (name.trim() && !Number(name) && name.length > 1) {
+        var userName = nameInput.value;
+        localStorage.setItem('savedName', userName);
+    }
+    else {
+        alert("Podaj poprawnie swoję imię :)");
+    }
+});
+if (localStorage.savedName == null) {
+    user.innerText = "Imię"
+    appFirstTime.style.display = "flex";
+    appDesktop.style.display = "none";
+}
+else {
+    user.innerText = localStorage.savedName;
+    appFirstTime.style.display = "none";
+    appDesktop.style.display = "flex";
+}
+
+
+
+
+// Schedule
 function Schedule(id, weekNumber, title, description) {
     this.id = id; // id przepisu
     this.title = title; // nazwa planu
@@ -43,7 +75,7 @@ newPlan.sunday = ["kutia", "wątroba siekana smażona", "zupa grzybowa", "zupa o
 allPlanns.push(newPlan);
 
 
-let breakfastRow= document.querySelector('.breakfast').children;
+let breakfastRow = document.querySelector('.breakfast').children;
 let secondMealRow = document.querySelector('.second-meal').children;
 let soupRow = document.querySelector('.soup').children;
 let mainCourse = document.querySelector('.main-course').children;
@@ -51,5 +83,3 @@ let supperCourse = document.querySelector('.supper').children;
 
 let scheduleLeft = document.querySelector('.schedule-click-left');
 let scheduleRight = document.querySelector('.schedule-click-right');
-
-
