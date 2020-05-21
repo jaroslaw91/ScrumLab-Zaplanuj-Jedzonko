@@ -1,17 +1,18 @@
 .main-app-section-content {
+  border: none;
+  background: none;
+  align-items: flex-start;
   .app-desktop {
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-self: center;
+    justify-content: space-between;
+    align-items: flex-start;
     margin: 0 auto;
-    margin-top: 20px;
     .buttons-left {
-      margin-left: 50px;
       .widget-button {
         display: flex;
         justify-content: space-between;
-        width: 550px;
+        width: 450px;
         .button-add-recipe {
           background-color: $white-color;
           height: 200px;
@@ -27,10 +28,8 @@
       }
     }
     .widget-nofications {
-      margin-right: 70px;
       display: flex;
       flex-direction: column;
-
       .nofication {
         display: flex;
         align-items: center;

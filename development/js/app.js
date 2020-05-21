@@ -7,7 +7,7 @@ const appDesktop = document.querySelector(".app-desktop");
 
 nameBtn.addEventListener("click", function (e) {
     let name = nameInput.value;
-    if (name.trim() && !Number(name)) {
+    if (name.trim() && !Number(name) && name.length > 1) {
         var userName = nameInput.value;
         localStorage.setItem('savedName', userName);
     }
@@ -17,13 +17,13 @@ nameBtn.addEventListener("click", function (e) {
 });
 if (localStorage.savedName == null) {
     user.innerText = "Imię"
-    appFirstTime.style.display = "block";
+    appFirstTime.style.display = "flex";
     appDesktop.style.display = "none";
 }
 else {
     user.innerText = localStorage.savedName;
     appFirstTime.style.display = "none";
-    appDesktop.style.display = "block";
+    appDesktop.style.display = "flex";
 }
 
 
