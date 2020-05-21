@@ -1,34 +1,22 @@
 .app-about {
   padding: 100px;
-  width: 100%;
-  .container {
-    width: 1300px;
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    .app-about-col {
-      width: 320px;
-      text-align: center;
-      font-size: 1.7em;
-      color: $dark-grey-color;
-      i {
-        margin-bottom: 30px;
-        font-size: 3.6em;
-        color: $light-grey-color;
-      }
-      h3 {
-        margin-bottom: 10px;
-        font-size: 1.3em;
-      }
-    }
-  }
-}
-.contact-col-form {
+  width: 1300px;
   display: flex;
-  input {
-    height: 2.4rem;
-  }
-  button {
-    height: 2.4rem;
+  align-items: stretch;
+  justify-content: space-between;
+  &-col {
+    width: 320px;
+    text-align: center;
+    font-size: 1.7em;
+    color: $dark-grey-color;
+    i {
+      margin-bottom: 30px;
+      font-size: 3.6em;
+      color: $light-grey-color;
+    }
+    h3 {
+      margin-bottom: 10px;
+      font-size: 1.3em;
+    }
   }
 }
