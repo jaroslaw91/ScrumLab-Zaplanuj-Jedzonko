@@ -6,8 +6,14 @@ const appFirstTime = document.querySelector(".app-first-time");
 const appDesktop = document.querySelector(".app-desktop");
 
 nameBtn.addEventListener("click", function (e) {
-    var userName = nameInput.value;
-    localStorage.setItem('savedName', userName);
+    let name = nameInput.value;
+    if (name.trim() && !Number(name)) {
+        var userName = nameInput.value;
+        localStorage.setItem('savedName', userName);
+    }
+    else {
+        alert("Podaj poprawnie swoję imię :)");
+    }
 });
 if (localStorage.savedName == null) {
     user.innerText = "Imię"
