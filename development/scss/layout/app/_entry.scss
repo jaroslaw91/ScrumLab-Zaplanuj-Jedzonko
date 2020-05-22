@@ -1,4 +1,13 @@
 div.main-app-section-content {
+    background-color: $white-color;
+    border: 1px dashed $light-grey-color;
+    width: 95%;
+    height: calc(100vh - 170px);
+    margin: 0 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $dark-grey-color;
     div.container {
         display: flex;
         justify-content: center;

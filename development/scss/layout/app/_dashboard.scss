@@ -1,7 +1,7 @@
 .main-app-section {
   display: flex;
   flex-direction: column;
-  padding-bottom: 1em;
+  padding: 2em 4em 2em 0;
 
 }
 
@@ -38,10 +38,6 @@
   border: none;
   background: none;
   align-items: flex-start;
-  height: 50%;
-  padding-top: 2em;
-  padding-right: 9em;
-  margin-left: 6em;
 
   .app-desktop {
     width: 100%;
@@ -115,14 +111,10 @@
   justify-content: center;
   align-items: center;
   padding-left: 6em;
-  padding-right: 3em;
-
-  height: 100%;
 
   .schedule-view {
     background: $white-color;
     border: 1px dashed $dark-grey-color;
-    width: 100%;
 
 
     h3 {
@@ -140,7 +132,7 @@
         border-top: 0.5px solid $light-grey-color;
         color: $dark-grey-color;
         font-size: 2em;
-        padding: .7em 1.4em;
+        padding: .5em 1.5em;
       }
 
       tr td {
