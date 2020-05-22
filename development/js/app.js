@@ -5,6 +5,7 @@ const user = document.querySelector(".user-name");
 const appFirstTime = document.querySelector(".app-first-time");
 const appDesktop = document.querySelector(".app-desktop");
 const mainApp = document.querySelector(".main-app-section-content");
+const tableAppSection = document.querySelector(".table-app-section");
 
 nameBtn.addEventListener("click", function (e) {
     let name = nameInput.value;
@@ -17,12 +18,13 @@ nameBtn.addEventListener("click", function (e) {
     }
 });
 if (localStorage.savedName == null) {
-    user.innerText = "Imię"
+    user.innerText = "Imię";
     appFirstTime.style.display = "flex";
     appDesktop.style.display = "none";
     mainApp.style.border = "1px dashed $light-grey-color";
     mainApp.style.backgroundColor = "$white-color";
     mainApp.style.alignItems = "center";
+    tableAppSection.style.display = "none";
 }
 else {
     user.innerText = localStorage.savedName;

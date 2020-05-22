@@ -1,21 +1,64 @@
+.main-app-section {
+  display: flex;
+  flex-direction: column;
+  padding: 2em 4em 2em 0;
+
+}
+
+.yellow-noficat {
+  border: 1px dashed $yellow-color !important;
+  color: $yellow-color !important;
+}
+
+.green-noficat {
+  border: 1px dashed $green-color !important;
+  color: $green-color !important;
+}
+
+.widget-recipe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $green-color;
+
+  i {
+    margin-top: 30%;
+    font-size: 3.6em;
+    color: $green-color;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
+
 .main-app-section-content {
+  border: none;
+  background: none;
+  align-items: flex-start;
+
   .app-desktop {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin: 0 auto;
+
     .buttons-left {
       .widget-button {
         display: flex;
         justify-content: space-between;
-        width: 450px;
+        width: 35em;
+
         .button-add-recipe {
           background-color: $white-color;
           height: 200px;
           width: 200px;
           border: 1px dashed $green-color;
         }
+
         .button-add-schedule {
           background-color: $white-color;
           height: 200px;
@@ -24,28 +67,34 @@
         }
       }
     }
+
     .widget-nofications {
       display: flex;
       flex-direction: column;
+
       .nofication {
         display: flex;
         align-items: center;
         justify-content: space-between;
         background-color: $white-color;
         width: 900px;
-        height: 75px;
+        height: 4.5em;
         border: 1px dashed $blue-color;
         color: $blue-color;
         margin-bottom: 5px;
+
         i {
           font-size: 1.8rem;
         }
+
         p {
           font-size: 1.8rem;
         }
+
         .fas {
           margin-left: 5px;
         }
+
         .fa-window-close {
           margin-top: -20px;
           margin-right: 5px;
@@ -55,27 +104,79 @@
     }
   }
 }
-.yellow-noficat {
-  border: 1px dashed $yellow-color !important;
-  color: $yellow-color !important;
-}
-.green-noficat {
-  border: 1px dashed $green-color !important;
-  color: $green-color !important;
-}
-.widget-recipe {
+
+
+.table-app-section {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  color: $green-color;
-  i {
-    margin-top: 30%;
-    font-size: 3.6em;
-    color: $green-color;
-    margin-bottom: 10px;
+  padding-left: 6em;
+
+  .schedule-view {
+    background: $white-color;
+    border: 1px dashed $dark-grey-color;
+
+
+    h3 {
+      text-align: center;
+      font-size: 2em;
+      padding: 1em;
+    }
+
+    table {
+      text-align: left;
+      border-collapse: collapse;
+
+      tr th {
+        border-bottom: 0.5px solid $light-grey-color;
+        border-top: 0.5px solid $light-grey-color;
+        color: $dark-grey-color;
+        font-size: 2em;
+        padding: .5em 1.5em;
+      }
+
+      tr td {
+        border-bottom: 0.5px solid $light-grey-color;
+        color: $light-grey-color;
+        padding: 0.7em 2em;
+        font-size: 1.5em;
+      }
+    }
   }
-  p {
-    font-size: 1.2rem;
-    font-weight: bold;
+
+  h3 {
+    color: $custom-orange-color;
   }
+
+  .schedule-change-page {
+    display: flex;
+    justify-content: space-between;
+    color: $custom-orange-color;
+    font-size: 1em;
+    font-weight: lighter;
+    padding: 1em 0;
+
+    .schedule-click-left {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+
+      i {
+        font-size: 2em;
+        padding: .2em;
+      }
+    }
+
+    .schedule-click-right {
+      display: flex;
+      align-items: center;
+
+      i {
+        font-size: 2em;
+        padding: .2em;
+      }
+    }
+  }
+
 }
+
