@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   padding: 2em 4em 2em 0;
-
 }
 
 .yellow-noficat {
@@ -47,6 +46,9 @@
     margin: 0 auto;
 
     .buttons-left {
+      .widget-button:hover {
+        cursor: pointer;
+      }
       .widget-button {
         display: flex;
         justify-content: space-between;
@@ -105,7 +107,6 @@
   }
 }
 
-
 .table-app-section {
   display: flex;
   justify-content: center;
@@ -115,7 +116,6 @@
   .schedule-view {
     background: $white-color;
     border: 1px dashed $dark-grey-color;
-
 
     h3 {
       text-align: center;
@@ -132,7 +132,7 @@
         border-top: 0.5px solid $light-grey-color;
         color: $dark-grey-color;
         font-size: 2em;
-        padding: .5em 1.5em;
+        padding: 0.5em 1.5em;
       }
 
       tr td {
@@ -163,7 +163,7 @@
 
       i {
         font-size: 2em;
-        padding: .2em;
+        padding: 0.2em;
       }
     }
 
@@ -173,13 +173,11 @@
 
       i {
         font-size: 2em;
-        padding: .2em;
+        padding: 0.2em;
       }
     }
   }
-
 }
-
 
 .title-new-schedule {
   display: flex;
@@ -245,7 +243,6 @@
     font-size: 1.2em;
     color: $light-grey-color;
     padding: 1em;
-
   }
 }
 
@@ -257,7 +254,6 @@
   color: $light-grey-color;
 
   h2 {
-
     font-size: 2em;
     font-weight: 300;
   }
@@ -270,8 +266,6 @@
     color: $light-grey-color;
     padding: 1em;
     height: 2em;
-
-
   }
 }
 
@@ -279,7 +273,7 @@
   text-align: left;
   border-collapse: collapse;
   margin: 1em 3em 1em 1em;
-  table-layout: fixed ;
+  table-layout: fixed;
   width: 95%;
 
   tr td:nth-of-type(1) {
@@ -289,19 +283,19 @@
     font-weight: 700;
   }
   td {
-    width: calc(100%/6);
+    width: calc(100% / 6);
   }
 
-  tr:nth-last-child(1){
+  tr:nth-last-child(1) {
     border-bottom: 0.5px solid $light-grey-color;
-
   }
 
-  tr th, tr td{
+  tr th,
+  tr td {
     padding: 0.3em;
     border-top: 0.5px solid $light-grey-color;
   }
-  tr th:nth-of-type(1){
+  tr th:nth-of-type(1) {
     border-top: none;
   }
   select {
@@ -309,7 +303,7 @@
     height: 2.5em;
     font-size: 1em;
     font-weight: 700;
-    padding: .2em 1.4em .2em .8em;
+    padding: 0.2em 1.4em 0.2em 0.8em;
     width: 15em;
     max-width: 100%;
     box-sizing: border-box;
@@ -321,12 +315,11 @@
     background-color: #fff;
     background-image: url("../images/arrow.png");
     background-repeat: no-repeat, repeat;
-    background-position: right .7em top 50%, 0 0;
-    background-size: .65em auto, 100%;
+    background-position: right 0.7em top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
     color: $cumstom-grey-color;
     cursor: pointer;
   }
-
 }
 
 .new-schedule-container {
@@ -340,7 +333,3 @@
   color: $cumstom-grey-color;
   font-weight: 700;
 }
-
-
-
-
