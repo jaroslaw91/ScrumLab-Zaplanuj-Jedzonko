@@ -1,21 +1,64 @@
+.main-app-section {
+  display: flex;
+  flex-direction: column;
+  padding: 2em 4em 2em 0;
+
+}
+
+.yellow-noficat {
+  border: 1px dashed $yellow-color !important;
+  color: $yellow-color !important;
+}
+
+.green-noficat {
+  border: 1px dashed $green-color !important;
+  color: $green-color !important;
+}
+
+.widget-recipe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $green-color;
+
+  i {
+    margin-top: 30%;
+    font-size: 3.6em;
+    color: $green-color;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
+
 .main-app-section-content {
+  border: none;
+  background: none;
+  align-items: flex-start;
+
   .app-desktop {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin: 0 auto;
+
     .buttons-left {
       .widget-button {
         display: flex;
         justify-content: space-between;
-        width: 450px;
+        width: 35em;
+
         .button-add-recipe {
           background-color: $white-color;
           height: 200px;
           width: 200px;
           border: 1px dashed $green-color;
         }
+
         .button-add-schedule {
           background-color: $white-color;
           height: 200px;
@@ -24,28 +67,34 @@
         }
       }
     }
+
     .widget-nofications {
       display: flex;
       flex-direction: column;
+
       .nofication {
         display: flex;
         align-items: center;
         justify-content: space-between;
         background-color: $white-color;
         width: 900px;
-        height: 75px;
+        height: 4.5em;
         border: 1px dashed $blue-color;
         color: $blue-color;
         margin-bottom: 5px;
+
         i {
           font-size: 1.8rem;
         }
+
         p {
           font-size: 1.8rem;
         }
+
         .fas {
           margin-left: 5px;
         }
+
         .fa-window-close {
           margin-top: -20px;
           margin-right: 5px;
@@ -55,27 +104,243 @@
     }
   }
 }
-.yellow-noficat {
-  border: 1px dashed $yellow-color !important;
-  color: $yellow-color !important;
-}
-.green-noficat {
-  border: 1px dashed $green-color !important;
-  color: $green-color !important;
-}
-.widget-recipe {
+
+
+.table-app-section {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  color: $green-color;
-  i {
-    margin-top: 30%;
-    font-size: 3.6em;
-    color: $green-color;
-    margin-bottom: 10px;
+  padding-left: 6em;
+
+  .schedule-view {
+    background: $white-color;
+    border: 1px dashed $dark-grey-color;
+
+
+    h3 {
+      text-align: center;
+      font-size: 2em;
+      padding: 1em;
+    }
+
+    .schedules {
+      text-align: left;
+      border-collapse: collapse;
+
+      tr th {
+        border-bottom: 0.5px solid $light-grey-color;
+        border-top: 0.5px solid $light-grey-color;
+        color: $dark-grey-color;
+        font-size: 2em;
+        padding: .5em 1.5em;
+      }
+
+      tr td {
+        border-bottom: 0.5px solid $light-grey-color;
+        color: $light-grey-color;
+        padding: 0.7em 2em;
+        font-size: 1.5em;
+      }
+    }
   }
-  p {
-    font-size: 1.2rem;
-    font-weight: bold;
+
+  h3 {
+    color: $custom-orange-color;
+  }
+
+  .schedule-change-page {
+    display: flex;
+    justify-content: space-between;
+    color: $custom-orange-color;
+    font-size: 1em;
+    font-weight: lighter;
+    padding: 1em 0;
+
+    .schedule-click-left {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+
+      i {
+        font-size: 2em;
+        padding: .2em;
+      }
+    }
+
+    .schedule-click-right {
+      display: flex;
+      align-items: center;
+
+      i {
+        font-size: 2em;
+        padding: .2em;
+      }
+    }
+  }
+
+}
+
+
+.title-new-schedule {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2em 2em;
+  padding-bottom: 1em;
+  border-bottom: 0.5px solid $light-grey-color;
+
+  h3 {
+    color: $custom-orange-color;
+    font-size: 2em;
+  }
+
+  a {
+    color: $white-color;
+    background-color: $custom-orange-color;
+    padding: 0.5em 0.5em;
   }
 }
+
+.name-new-schedule {
+  display: flex;
+  flex-direction: row;
+  margin: 0.3em 2em;
+  padding-bottom: 1em;
+  justify-content: space-between;
+  padding-right: 4em;
+  color: $light-grey-color;
+
+  h2 {
+    font-size: 2em;
+    font-weight: 300;
+  }
+
+  input {
+    border: 0.3px solid $light-grey-color;
+    width: 80%;
+    font-size: 1.2em;
+    color: $light-grey-color;
+    padding: 1em;
+    height: 2em;
+  }
+}
+
+.dsc-new-schedule {
+  display: flex;
+  flex-direction: row;
+  margin: 0.3em 2em;
+  padding-bottom: 1em;
+  justify-content: space-between;
+  padding-right: 4em;
+  color: $light-grey-color;
+
+  h2 {
+    font-size: 2em;
+    font-weight: 300;
+  }
+
+  textarea {
+    border: 0.3px solid $light-grey-color;
+    width: 80%;
+    font-size: 1.2em;
+    color: $light-grey-color;
+    padding: 1em;
+
+  }
+}
+
+.nr-new-schedule {
+  display: flex;
+  flex-direction: row;
+  margin: 0.3em 2em;
+  padding-bottom: 1em;
+  color: $light-grey-color;
+
+  h2 {
+
+    font-size: 2em;
+    font-weight: 300;
+  }
+
+  input {
+    border: 0.3px solid $light-grey-color;
+    width: 5%;
+    font-size: 1.2em;
+    margin-left: 4em;
+    color: $light-grey-color;
+    padding: 1em;
+    height: 2em;
+
+
+  }
+}
+
+.new-schedules {
+  text-align: left;
+  border-collapse: collapse;
+  margin: 1em 3em 1em 1em;
+  table-layout: fixed ;
+  width: 95%;
+
+  tr td:nth-of-type(1) {
+    font-size: 1.5em;
+    color: $cumstom-grey-color;
+    padding-left: 1em;
+    font-weight: 700;
+  }
+  td {
+    width: calc(100%/6);
+  }
+
+  tr:nth-last-child(1){
+    border-bottom: 0.5px solid $light-grey-color;
+
+  }
+
+  tr th, tr td{
+    padding: 0.3em;
+    border-top: 0.5px solid $light-grey-color;
+  }
+  tr th:nth-of-type(1){
+    border-top: none;
+  }
+  select {
+    display: block;
+    height: 2.5em;
+    font-size: 1em;
+    font-weight: 700;
+    padding: .2em 1.4em .2em .8em;
+    width: 15em;
+    max-width: 100%;
+    box-sizing: border-box;
+    border: 0.5px solid $cumstom-grey-color;
+    border-radius: 8px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-image: url("../images/arrow.png");
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+    color: $cumstom-grey-color;
+    cursor: pointer;
+  }
+
+}
+
+.new-schedule-container {
+  background-color: $white-color;
+  border: dashed 1px $cumstom-grey-color;
+  margin: 0 3em;
+}
+
+.titles-meals {
+  font-size: 2em;
+  color: $cumstom-grey-color;
+  font-weight: 700;
+}
+
+
+
+
