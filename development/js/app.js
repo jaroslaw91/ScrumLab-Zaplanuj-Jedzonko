@@ -1,4 +1,3 @@
-// Name local storage 
 const nameInput = document.querySelector(".name-local-storage > input");
 const nameBtn = document.querySelector(".name-local-storage > button");
 const user = document.querySelector(".user-name");
@@ -6,17 +5,30 @@ const appFirstTime = document.querySelector(".app-first-time");
 const appDesktop = document.querySelector(".app-desktop");
 const mainApp = document.querySelector(".main-app-section-content");
 const tableAppSection = document.querySelector(".table-app-section");
+const newScheduleContainer = document.querySelector(".new-schedule-container");
+const buttonAddRecipe = document.querySelector(".button-add-recipe");
+
+newScheduleContainer.style.display = 'none';
 
 nameBtn.addEventListener("click", function (e) {
     let name = nameInput.value;
     if (name.trim() && !Number(name) && name.length > 1) {
-        var userName = name;
+        let userName = name;
         localStorage.setItem("savedName", userName);
     }
     else {
         alert("Podaj poprawnie swoję imię :)");
     }
 });
+
+buttonAddRecipe.addEventListener("click", function (e) {
+    mainApp.style.display = "none";
+    tableAppSection.style.display = "none";
+    newScheduleContainer.style.display = 'flex';
+    newScheduleContainer.style.flexDirection = 'column';
+});
+
+
 if (localStorage.savedName == null) {
     user.innerText = "Imię";
     appFirstTime.style.display = "flex";

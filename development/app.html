@@ -34,7 +34,6 @@
             </ul>
         </nav>
     </section>
-
     <section class="main-app-section">
         <div class="main-app-section-content">
             <div class="app-first-time">
@@ -56,7 +55,7 @@
                 <div class="buttons-left">
                     <div class="widget-button">
                         <div class="button-add-recipe">
-                            <a href="recipes.html" class="btn-add-recipe">
+                            <a class="btn-add-recipe">
                                 <div class="widget-recipe">
                                     <i class="far fa-plus-square"></i>
                                     <p>dodaj przepis</p>
@@ -64,7 +63,7 @@
                             </a>
                         </div>
                         <div class="button-add-schedule">
-                            <a href="schedules.html" class="btn-add-schedule">
+                            <a class="btn-add-schedule">
                                 <div class="widget-recipe">
                                     <i class="far fa-plus-square"></i>
                                     <p>dodaj plan</p>
@@ -164,8 +163,233 @@
                 </div>
             </section>
         </section>
+        <section class="new-schedule-container">
+            <section class="title-new-schedule">
+                <h3>NOWY PLAN</h3>
+                <a href="#">Zapisz i zamknij</a>
+            </section>
+            <section class="name-new-schedule">
+                <h2>Nazwa planu</h2>
+                <input type="text" placeholder="Podaj nazwę planu">
+            </section>
+            <section class="dsc-new-schedule">
+                <h2>Opis planu</h2>
+                <textarea placeholder="Podaj opis planu" rows="5"></textarea>
+            </section>
 
+            <section class="nr-new-schedule">
+                <h2>Numer tygodnia</h2>
+                <input type="number" placeholder="0">
+            </section>
+            <table class="new-schedules">
+                <tr class="titles-meals">
+                    <th></th>
+                    <th>ŚNIADANIE</th>
+                    <th>DRUGIE ŚNIADANIE</th>
+                    <th>ZUPA</th>
+                    <th>DRUGIE DANIE</th>
+                    <th>KOLACJA</th>
+                </tr>
+                <tr class="monday">
+                    <td>PONIEDZIAŁEK</td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="tuesday">
+                    <td>WTOREK</td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="wednesday">
+                    <td>ŚRODA</td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="thursday">
+                    <td>CZWARTEK</td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="friday">
+                    <td>PIĄTEK</td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="saturday">
+                    <td>SOBOTA</td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="sunday">
+                    <td>NIEDZIELA</td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="meal">
+                            <option value="zapiekanka">Zapiekanka</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </section>
     </section>
+
 
 
 </section>
