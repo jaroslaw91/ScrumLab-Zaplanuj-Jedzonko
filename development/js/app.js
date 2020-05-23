@@ -7,8 +7,11 @@ const mainApp = document.querySelector(".main-app-section-content");
 const tableAppSection = document.querySelector(".table-app-section");
 const newScheduleContainer = document.querySelector(".new-schedule-container");
 const buttonAddRecipe = document.querySelector(".button-add-recipe");
+const buttonAddSchedule = document.querySelector(".button-add-schedule");
+const newRecipeSection = document.querySelector(".new-recipe-section");
 
-newScheduleContainer.style.display = "none";
+newScheduleContainer.style.display = 'none';
+newRecipeSection.style.display = 'none';
 
 nameBtn.addEventListener("click", function (e) {
   let name = nameInput.value;
@@ -21,10 +24,18 @@ nameBtn.addEventListener("click", function (e) {
 });
 
 buttonAddRecipe.addEventListener("click", function (e) {
-  mainApp.style.display = "none";
-  tableAppSection.style.display = "none";
-  newScheduleContainer.style.display = "flex";
-  newScheduleContainer.style.flexDirection = "column";
+    mainApp.style.display = "none";
+    tableAppSection.style.display = "none";
+    newRecipeSection.style.display = 'flex';
+    newRecipeSection.style.flexDirection = 'column';
+    
+});
+
+buttonAddSchedule.addEventListener("click", function (e) {
+    mainApp.style.display = "none";
+    tableAppSection.style.display = "none";
+    newScheduleContainer.style.display = 'flex';
+    newScheduleContainer.style.flexDirection = 'column';
 });
 
 if (localStorage.savedName == null) {

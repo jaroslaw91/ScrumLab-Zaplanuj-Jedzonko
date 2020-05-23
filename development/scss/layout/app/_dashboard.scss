@@ -179,7 +179,8 @@
   }
 }
 
-.title-new-schedule {
+.title-new-schedule,
+.new-recipe-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -199,7 +200,8 @@
   }
 }
 
-.name-new-schedule {
+.name-new-schedule,
+.new-recipe-name {
   display: flex;
   flex-direction: row;
   margin: 0.3em 2em;
@@ -223,7 +225,8 @@
   }
 }
 
-.dsc-new-schedule {
+.dsc-new-schedule,
+.new-recipe-dsc {
   display: flex;
   flex-direction: row;
   margin: 0.3em 2em;
@@ -244,6 +247,11 @@
     color: $light-grey-color;
     padding: 1em;
   }
+}
+
+.new-recipe-dsc textarea {
+  font-family: "Open Sans", sans-serif;
+  padding: 0.8rem;
 }
 
 .nr-new-schedule {
@@ -333,6 +341,67 @@
   color: $cumstom-grey-color;
   font-weight: 700;
 }
+
+.new-recipe-section {
+  background-color: $white-color;
+  border: dashed 1px $cumstom-grey-color;
+  margin: 0 3em;
+}
+.recipe-instructions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2em 2em;
+  padding-bottom: 1em;
+
+  .new-recipe-instruction,
+  .new-recipe-ingredients {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+  }
+  .new-recipe-ingredients {
+    margin-left: 2rem;
+  }
+
+  h3 {
+    color: $cumstom-grey-color;
+    font-size: 2em;
+    border-bottom: 0.5px solid $light-grey-color;
+  }
+
+  div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2em 0;
+
+    textarea {
+      border: 1px solid $light-grey-color;
+      color: $light-grey-color;
+      font-family: "Open Sans", sans-serif;
+      font-size: 1.2rem;
+      width: calc(100% - 3rem);
+      padding: 0.5rem;
+    }
+
+    button {
+      width: 2.5rem;
+      height: 2.5rem;
+      color: $green-color;
+      font-size: 2.5em;
+      background: transparent;
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+  }
+}
+
 .nofication .delete-widgets {
   i {
     color: $blue-color;
