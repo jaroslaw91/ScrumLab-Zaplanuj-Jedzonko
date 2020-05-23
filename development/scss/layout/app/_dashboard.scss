@@ -79,7 +79,7 @@
         align-items: center;
         justify-content: space-between;
         background-color: $white-color;
-        width: 900px;
+        width: 850px;
         height: 4.5em;
         border: 1px dashed $blue-color;
         color: $blue-color;
@@ -332,4 +332,22 @@
   font-size: 2em;
   color: $cumstom-grey-color;
   font-weight: 700;
+}
+.nofication .delete-widgets {
+  i {
+    color: $blue-color;
+    border: 0;
+  }
+  i.yellow-butt {
+    color: $yellow-color;
+    border: 0;
+  }
+  i.green-butt {
+    color: $green-color;
+    border: 0;
+  }
+}
+button:hover,
+a:hover {
+  cursor: pointer;
 }
