@@ -343,6 +343,7 @@
 }
 
 .new-recipe-section {
+  display: flex;
   background-color: $white-color;
   border: dashed 1px $cumstom-grey-color;
   margin: 0 3em;
@@ -350,7 +351,9 @@
 .recipe-instructions {
   display: flex;
   flex-direction: row;
+  height: 17vh;
   justify-content: space-between;
+  align-items: flex-start;
   margin: 2em 2em;
   padding-bottom: 1em;
 
@@ -360,6 +363,9 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 1em;
+    textarea {
+      resize: none;
+    }
   }
   .new-recipe-ingredients {
     margin-left: 2rem;
@@ -398,6 +404,50 @@
 
     button:hover {
       cursor: pointer;
+    }
+  }
+}
+
+.recipe-adding {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1em;
+}
+
+.recipe-lists {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  margin-top: 2rem;
+  
+  .recipe-instruction-list, .recipe-ingredients-list {
+    overflow-y: scroll;
+    width: 50%;
+    max-height: 30%;
+    margin-right: 2rem;
+    ul, ol {
+      font-family: "Open Sans", sans-serif;
+      color: $cumstom-grey-color;
+      font-size: 1.2rem;
+      i.fas {
+        font-size: 1.2rem;
+        font-weight: lighter;;
+      }
+      i.fa-edit {
+        color: $light-orange-color;
+      }
+      i.fa-trash-alt {
+        color: red;
+      }
+    }
+    ul {
+      padding-left: 2rem;
+      list-style-type: disc;
+    }
+    ol {
+      padding-left: 3rem;
     }
   }
 }
