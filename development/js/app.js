@@ -10,8 +10,8 @@ const buttonAddRecipe = document.querySelector(".button-add-recipe");
 const buttonAddSchedule = document.querySelector(".button-add-schedule");
 const newRecipeSection = document.querySelector(".new-recipe-section");
 
-newScheduleContainer.style.display = 'none';
-newRecipeSection.style.display = 'none';
+newScheduleContainer.style.display = "none";
+newRecipeSection.style.display = "none";
 
 nameBtn.addEventListener("click", function (e) {
   let name = nameInput.value;
@@ -24,18 +24,17 @@ nameBtn.addEventListener("click", function (e) {
 });
 
 buttonAddRecipe.addEventListener("click", function (e) {
-    mainApp.style.display = "none";
-    tableAppSection.style.display = "none";
-    newRecipeSection.style.display = 'flex';
-    newRecipeSection.style.flexDirection = 'column';
-    
+  mainApp.style.display = "none";
+  tableAppSection.style.display = "none";
+  newRecipeSection.style.display = "flex";
+  newRecipeSection.style.flexDirection = "column";
 });
 
 buttonAddSchedule.addEventListener("click", function (e) {
-    mainApp.style.display = "none";
-    tableAppSection.style.display = "none";
-    newScheduleContainer.style.display = 'flex';
-    newScheduleContainer.style.flexDirection = 'column';
+  mainApp.style.display = "none";
+  tableAppSection.style.display = "none";
+  newScheduleContainer.style.display = "flex";
+  newScheduleContainer.style.flexDirection = "column";
 });
 
 if (localStorage.savedName == null) {
@@ -154,4 +153,41 @@ for (let i = 0; i < deleteWidget.length; i++) {
   deleteWidget[i].addEventListener("click", () => {
     deleteWidget[i].parentElement.style.display = "none";
   });
+}
+
+let recipe_name = document.querySelector("#recipe_name");
+let recipe_desc = document.querySelector("#recipe_desc");
+let instruction_butt = document.querySelector("#instruction_butt");
+let ingredient_butt = document.querySelector("#ingredient_butt");
+
+instruction_butt.addEventListener("click", function () {
+  let instruction_list = document.getElementById("instruction_list");
+  let value_instruction = document.getElementById("value_instruction");
+  let newLi = document.createElement("li");
+  newLi.innerHTML =
+    value_instruction.value +
+    ` <i class="fas fa-edit"></i
+  ><i class="fas fa-trash-alt"></i>`;
+  instruction_list.appendChild(newLi);
+  value_instruction.value = " ";
+});
+
+ingredient_butt.addEventListener("click", function () {
+  let ingredient_list = document.getElementById("ingredient_list");
+  let value_ingredient = document.getElementById("value_ingredient");
+  let newLi = document.createElement("li");
+  newLi.innerHTML =
+    value_ingredient.value +
+    ` <i class="fas fa-edit"></i
+  ><i class="fas fa-trash-alt"></i>`;
+  ingredient_list.appendChild(newLi);
+  value_ingredient.value = " ";
+});
+
+function Recipe(id, title, description) {
+  this.id = id; // id przepisu
+  this.title = title; // nazwa przepisu
+  this.description = description; // opis przepisu
+  this.ingredients = []; // składniki przepisu
+  this.instructions = []; // instrukcje przepisu
 }
