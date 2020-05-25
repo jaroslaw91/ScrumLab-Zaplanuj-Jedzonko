@@ -421,19 +421,21 @@
   width: 100%;
   height: 100%;
   margin-top: 2rem;
-  
-  .recipe-instruction-list, .recipe-ingredients-list {
+
+  .recipe-instruction-list,
+  .recipe-ingredients-list {
     overflow-y: scroll;
     width: 50%;
     max-height: 30%;
     margin-right: 2rem;
-    ul, ol {
+    ul,
+    ol {
       font-family: "Open Sans", sans-serif;
       color: $cumstom-grey-color;
       font-size: 1.2rem;
       i.fas {
         font-size: 1.2rem;
-        font-weight: lighter;;
+        font-weight: lighter;
       }
       i.fa-edit {
         color: $light-orange-color;
