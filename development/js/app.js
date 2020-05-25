@@ -9,6 +9,7 @@ const newScheduleContainer = document.querySelector(".new-schedule-container");
 const buttonAddRecipe = document.querySelector(".button-add-recipe");
 const buttonAddSchedule = document.querySelector(".button-add-schedule");
 const newRecipeSection = document.querySelector(".new-recipe-section");
+var allRecipes = [];
 
 newScheduleContainer.style.display = "none";
 newRecipeSection.style.display = "none";
@@ -159,9 +160,10 @@ let recipe_name = document.querySelector("#recipe_name");
 let recipe_desc = document.querySelector("#recipe_desc");
 let instruction_butt = document.querySelector("#instruction_butt");
 let ingredient_butt = document.querySelector("#ingredient_butt");
+let instruction_list = document.getElementById("instruction_list");
+let ingredient_list = document.getElementById("ingredient_list");
 
 instruction_butt.addEventListener("click", function () {
-  let instruction_list = document.getElementById("instruction_list");
   let value_instruction = document.getElementById("value_instruction");
   let newLi = document.createElement("li");
   newLi.innerHTML =
@@ -173,7 +175,6 @@ instruction_butt.addEventListener("click", function () {
 });
 
 ingredient_butt.addEventListener("click", function () {
-  let ingredient_list = document.getElementById("ingredient_list");
   let value_ingredient = document.getElementById("value_ingredient");
   let newLi = document.createElement("li");
   newLi.innerHTML =
@@ -190,4 +191,51 @@ function Recipe(id, title, description) {
   this.description = description; // opis przepisu
   this.ingredients = []; // składniki przepisu
   this.instructions = []; // instrukcje przepisu
+}
+
+const save = document.getElementById("saveAndClose");
+
+function addRecipe(e) {
+  e.preventDefault();
+  if (recipe_name.value && recipe_desc.value) {
+    let newRecipe = new Recipe(
+      allRecipes.length + 1,
+      recipe_name.value,
+      recipe_desc.value
+    );
+    let allInstructions = instruction_list.querySelectorAll("li");
+    let allIngredients = ingredient_list.querySelectorAll("li");
+    allInstructions.forEach(function (element) {
+      newRecipe.instructions.push(element.innerText);
+    });
+    allIngredients.forEach(function (element) {
+      newRecipe.ingredients.push(element.innerText);
+    });
+    allRecipes.push(newRecipe);
+    console.log(newRecipe);
+    recipe_name.value = "";
+    recipe_desc.value = "";
+    addRecipesToLocalStorage(newRecipe);
+    allInstructions.forEach(function (element) {
+      instruction_list.removeChild(element);
+    });
+    allIngredients.forEach(function (element) {
+      ingredient_list.removeChild(element);
+    });
+  } else if (recipe_name.value.length <= 0 || recipe_desc.value.length <= 0) {
+    alert("Dodaj nazwę i opis!");
+  }
+}
+save.addEventListener("click", addRecipe);
+function addRecipesToLocalStorage(newRecipe) {
+  var dataFromLocalStorage = [];
+  if (localStorage.getItem("recipe_") != null) {
+    dataFromLocalStorage = JSON.parse(localStorage.getItem("recipe_"));
+    dataFromLocalStorage.push(newRecipe);
+    localStorage.setItem("recipe_", JSON.stringify(dataFromLocalStorage));
+  } else {
+    dataFromLocalStorage.push(newRecipe);
+    localStorage.setItem("recipe_", JSON.stringify(dataFromLocalStorage));
+  }
+  alert("Przepis zapisany do localStorage");
 }
