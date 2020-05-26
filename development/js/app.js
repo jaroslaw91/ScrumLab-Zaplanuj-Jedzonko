@@ -56,9 +56,6 @@ buttonAddSchedule.addEventListener("click", function (e) {
   newScheduleContainer.style.flexDirection = "column";
 });
 
-
-
-
 // Schedule
 function Schedule(id, weekNumber, title, description) {
   this.id = id; // id przepisu
@@ -160,9 +157,6 @@ for (let i = 0; i < deleteWidget.length; i++) {
   });
 }
 
-
-
-
 // Add recipe
 let recipe_name = document.querySelector("#recipe_name");
 let recipe_desc = document.querySelector("#recipe_desc");
@@ -176,8 +170,7 @@ instruction_butt.addEventListener("click", function () {
   let value_instruction = document.getElementById("value_instruction");
   if (!value_instruction.value) {
     alert("Wpisz jakąś instrukcję :)");
-  }
-  else {
+  } else {
     let newLi = document.createElement("li");
     newLi.innerHTML =
       value_instruction.value +
@@ -192,8 +185,7 @@ ingredient_butt.addEventListener("click", function () {
   let value_ingredient = document.getElementById("value_ingredient");
   if (!value_ingredient.value) {
     alert("Wpisz jakiś składnik :)");
-  }
-  else {
+  } else {
     let newLi = document.createElement("li");
     newLi.innerHTML =
       value_ingredient.value +
@@ -221,8 +213,7 @@ let recipesIdList = 0;
 if (localStorage.recipe_ == null) {
   recipesIdList = 0;
   recipesCounterList.innerText = 0;
-}
-else {
+} else {
   recipesIdList = recipesListLocalStorage.length;
   recipesCounterList.innerText = recipesListLocalStorage.length;
 }
@@ -269,4 +260,15 @@ function addRecipesToLocalStorage(newRecipe) {
     localStorage.setItem("recipe_", JSON.stringify(dataFromLocalStorage));
   }
   alert("Przepis zapisany do localStorage");
+}
+
+if (recipesListLocalStorage.length == 1) {
+  recipesCounterList.innerText = recipesListLocalStorage.length + " przepis";
+} else if (
+  recipesListLocalStorage.length >= 2 &&
+  recipesListLocalStorage.length <= 4
+) {
+  recipesCounterList.innerText = recipesListLocalStorage.length + " przepisy";
+} else {
+  recipesCounterList.innerText = recipesListLocalStorage.length + " przepisów";
 }
