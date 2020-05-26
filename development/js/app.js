@@ -170,27 +170,38 @@ let instruction_butt = document.querySelector("#instruction_butt");
 let ingredient_butt = document.querySelector("#ingredient_butt");
 let instruction_list = document.getElementById("instruction_list");
 let ingredient_list = document.getElementById("ingredient_list");
+const save = document.getElementById("saveAndClose");
 
 instruction_butt.addEventListener("click", function () {
   let value_instruction = document.getElementById("value_instruction");
-  let newLi = document.createElement("li");
-  newLi.innerHTML =
-    value_instruction.value +
-    ` <i class="fas fa-edit"></i
+  if (!value_instruction.value) {
+    alert("Wpisz jakąś instrukcję :)");
+  }
+  else {
+    let newLi = document.createElement("li");
+    newLi.innerHTML =
+      value_instruction.value +
+      ` <i class="fas fa-edit"></i
   ><i class="fas fa-trash-alt"></i>`;
-  instruction_list.appendChild(newLi);
-  value_instruction.value = " ";
+    instruction_list.appendChild(newLi);
+    value_instruction.value = "";
+  }
 });
 
 ingredient_butt.addEventListener("click", function () {
   let value_ingredient = document.getElementById("value_ingredient");
-  let newLi = document.createElement("li");
-  newLi.innerHTML =
-    value_ingredient.value +
-    ` <i class="fas fa-edit"></i
+  if (!value_ingredient.value) {
+    alert("Wpisz jakiś składnik :)");
+  }
+  else {
+    let newLi = document.createElement("li");
+    newLi.innerHTML =
+      value_ingredient.value +
+      ` <i class="fas fa-edit"></i
   ><i class="fas fa-trash-alt"></i>`;
-  ingredient_list.appendChild(newLi);
-  value_ingredient.value = " ";
+    ingredient_list.appendChild(newLi);
+    value_ingredient.value = "";
+  }
 });
 
 function Recipe(id, title, description) {
@@ -201,13 +212,17 @@ function Recipe(id, title, description) {
   this.instructions = []; // instrukcje przepisu
 }
 
-const save = document.getElementById("saveAndClose");
+const recipesCounterList = document.querySelector(".recipes-counter-list");
+const recipesLocalStorage = localStorage.getItem("recipe_");
+const recipesListLocalStorage = JSON.parse(recipesLocalStorage);
+
+recipesCounterList.innerText = recipesListLocalStorage.length;
 
 function addRecipe(e) {
   e.preventDefault();
   if (recipe_name.value && recipe_desc.value) {
     let newRecipe = new Recipe(
-      allRecipes.length + 1,
+      recipesListLocalStorage.length + 1,
       recipe_name.value,
       recipe_desc.value
     );
