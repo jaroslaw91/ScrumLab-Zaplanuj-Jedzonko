@@ -1,3 +1,4 @@
+// Name local storage
 const nameInput = document.querySelector(".name-local-storage > input");
 const nameBtn = document.querySelector(".name-local-storage > button");
 const user = document.querySelector(".user-name");
@@ -10,6 +11,23 @@ const buttonAddRecipe = document.querySelector(".button-add-recipe");
 const buttonAddSchedule = document.querySelector(".button-add-schedule");
 const newRecipeSection = document.querySelector(".new-recipe-section");
 var allRecipes = [];
+
+if (localStorage.savedName == null) {
+  user.innerText = "Imię";
+  appFirstTime.style.display = "flex";
+  appDesktop.style.display = "none";
+  mainApp.style.border = "1px dashed $light-grey-color";
+  mainApp.style.backgroundColor = "$white-color";
+  mainApp.style.alignItems = "center";
+  tableAppSection.style.display = "none";
+} else {
+  user.innerText = localStorage.savedName;
+  appFirstTime.style.display = "none";
+  appDesktop.style.display = "flex";
+  mainApp.style.border = "none";
+  mainApp.style.background = "none";
+  mainApp.style.alignItems = "flex-start";
+}
 
 newScheduleContainer.style.display = "none";
 newRecipeSection.style.display = "none";
@@ -38,22 +56,8 @@ buttonAddSchedule.addEventListener("click", function (e) {
   newScheduleContainer.style.flexDirection = "column";
 });
 
-if (localStorage.savedName == null) {
-  user.innerText = "Imię";
-  appFirstTime.style.display = "flex";
-  appDesktop.style.display = "none";
-  mainApp.style.border = "1px dashed $light-grey-color";
-  mainApp.style.backgroundColor = "$white-color";
-  mainApp.style.alignItems = "center";
-  tableAppSection.style.display = "none";
-} else {
-  user.innerText = localStorage.savedName;
-  appFirstTime.style.display = "none";
-  appDesktop.style.display = "flex";
-  mainApp.style.border = "none";
-  mainApp.style.background = "none";
-  mainApp.style.alignItems = "flex-start";
-}
+
+
 
 // Schedule
 function Schedule(id, weekNumber, title, description) {
@@ -156,6 +160,10 @@ for (let i = 0; i < deleteWidget.length; i++) {
   });
 }
 
+
+
+
+// Add recipe
 let recipe_name = document.querySelector("#recipe_name");
 let recipe_desc = document.querySelector("#recipe_desc");
 let instruction_butt = document.querySelector("#instruction_butt");
