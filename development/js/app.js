@@ -259,10 +259,13 @@ function addRecipesToLocalStorage(newRecipe) {
     dataFromLocalStorage.push(newRecipe);
     localStorage.setItem("recipe_", JSON.stringify(dataFromLocalStorage));
   }
-  alert("Przepis zapisany do localStorage");
+  location.href = "./app.html";
 }
 
-if (recipesListLocalStorage.length == 1) {
+if (recipesListLocalStorage == null) {
+  recipesCounterList.innerText = "0 przepisów";
+}
+else if (recipesListLocalStorage.length == 1) {
   recipesCounterList.innerText = recipesListLocalStorage.length + " przepis";
 } else if (
   recipesListLocalStorage.length >= 2 &&
