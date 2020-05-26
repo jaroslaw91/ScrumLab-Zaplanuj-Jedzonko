@@ -212,7 +212,6 @@ function addRecipe(e) {
       newRecipe.ingredients.push(element.innerText);
     });
     allRecipes.push(newRecipe);
-    console.log(newRecipe);
     recipe_name.value = "";
     recipe_desc.value = "";
     addRecipesToLocalStorage(newRecipe);
