@@ -216,13 +216,22 @@ const recipesCounterList = document.querySelector(".recipes-counter-list");
 const recipesLocalStorage = localStorage.getItem("recipe_");
 const recipesListLocalStorage = JSON.parse(recipesLocalStorage);
 
-recipesCounterList.innerText = recipesListLocalStorage.length;
+let recipesIdList = 0;
+
+if (localStorage.recipe_ == null) {
+  recipesIdList = 0;
+  recipesCounterList.innerText = 0;
+}
+else {
+  recipesIdList = recipesListLocalStorage.length;
+  recipesCounterList.innerText = recipesListLocalStorage.length;
+}
 
 function addRecipe(e) {
   e.preventDefault();
   if (recipe_name.value && recipe_desc.value) {
     let newRecipe = new Recipe(
-      recipesListLocalStorage.length + 1,
+      recipesIdList + 1,
       recipe_name.value,
       recipe_desc.value
     );

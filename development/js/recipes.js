@@ -1,3 +1,15 @@
+//Name local storage
+const user = document.querySelector(".user-name");
+
+if (localStorage.savedName == null) {
+    user.innerText = "Imię";
+} else {
+    user.innerText = localStorage.savedName;
+}
+
+
+
+
 //Recipes list local storage
 const tBodyRecipe = document.querySelector(".recipes-table-tbody");
 const recipesLocalStorage = localStorage.getItem("recipe_");
