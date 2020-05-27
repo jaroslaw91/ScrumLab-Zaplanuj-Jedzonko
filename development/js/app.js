@@ -168,32 +168,92 @@ const save = document.getElementById("saveAndClose");
 
 instruction_butt.addEventListener("click", function () {
   let value_instruction = document.getElementById("value_instruction");
+  let newSpan = document.createElement("span");
+  let newSaveIcon = document.createElement("i");
+  let newEditIcon = document.createElement("i");
+  let newTrashIcon = document.createElement("i");
+  newTrashIcon.className = "fas fa-trash-alt";
+  newTrashIcon.style.color = "red";
+  newEditIcon.className = "fas fa-edit";
+  newEditIcon.style.color = "gold";
+  newEditIcon.style.margin = "0 5px";
+  newSaveIcon.className = "fas fa-save";
+  newSaveIcon.style.color = "blue";
+  newSaveIcon.style.margin = "0 5px";
+  newSaveIcon.style.display = "none";
+  newSaveIcon.style.cursor = "pointer";
+  newTrashIcon.style.cursor = "pointer";
+  newEditIcon.style.cursor = "pointer";
+  newSpan.innerText = value_instruction.value;
   if (!value_instruction.value) {
     alert("Wpisz jakąś instrukcję :)");
   } else {
     let newLi = document.createElement("li");
-    newLi.innerHTML =
-      value_instruction.value +
-      ` <i class="fas fa-edit"></i
-  ><i class="fas fa-trash-alt"></i>`;
-    instruction_list.appendChild(newLi);
+    newLi.appendChild(newSpan);
+    newLi.appendChild(newEditIcon);
+    newLi.appendChild(newSaveIcon);
+    newLi.appendChild(newTrashIcon);
     value_instruction.value = "";
+    instruction_list.appendChild(newLi);
   }
+  newTrashIcon.addEventListener("click", function () {
+    this.parentElement.style.display = "none";
+  });
+  newEditIcon.addEventListener("click", function () {
+    this.previousSibling.contentEditable = "true";
+    newEditIcon.style.display = "none";
+    newSaveIcon.style.display = "inline";
+  });
+  newSaveIcon.addEventListener("click", function () {
+    this.previousSibling.previousSibling.contentEditable = "false";
+    newSaveIcon.style.display = "none";
+    newEditIcon.style.display = "inline";
+  });
 });
 
 ingredient_butt.addEventListener("click", function () {
   let value_ingredient = document.getElementById("value_ingredient");
+  let newSpan = document.createElement("span");
+  let newSaveIcon = document.createElement("i");
+  let newEditIcon = document.createElement("i");
+  let newTrashIcon = document.createElement("i");
+  newTrashIcon.className = "fas fa-trash-alt";
+  newTrashIcon.style.color = "red";
+  newEditIcon.className = "fas fa-edit";
+  newEditIcon.style.color = "gold";
+  newEditIcon.style.margin = "0 5px";
+  newSaveIcon.className = "fas fa-save";
+  newSaveIcon.style.color = "blue";
+  newSaveIcon.style.margin = "0 5px";
+  newSaveIcon.style.display = "none";
+  newSaveIcon.style.cursor = "pointer";
+  newTrashIcon.style.cursor = "pointer";
+  newEditIcon.style.cursor = "pointer";
+  newSpan.innerText = value_ingredient.value;
   if (!value_ingredient.value) {
     alert("Wpisz jakiś składnik :)");
   } else {
     let newLi = document.createElement("li");
-    newLi.innerHTML =
-      value_ingredient.value +
-      ` <i class="fas fa-edit"></i
-  ><i class="fas fa-trash-alt"></i>`;
-    ingredient_list.appendChild(newLi);
+    newLi.appendChild(newSpan);
+    newLi.appendChild(newEditIcon);
+    newLi.appendChild(newSaveIcon);
+    newLi.appendChild(newTrashIcon);
     value_ingredient.value = "";
+    ingredient_list.appendChild(newLi);
   }
+  newTrashIcon.addEventListener("click", function () {
+    this.parentElement.style.display = "none";
+  });
+  newEditIcon.addEventListener("click", function () {
+    this.previousSibling.contentEditable = "true";
+    newEditIcon.style.display = "none";
+    newSaveIcon.style.display = "inline";
+  });
+  newSaveIcon.addEventListener("click", function () {
+    this.previousSibling.previousSibling.contentEditable = "false";
+    newSaveIcon.style.display = "none";
+    newEditIcon.style.display = "inline";
+  });
 });
 
 function Recipe(id, title, description) {
@@ -264,8 +324,7 @@ function addRecipesToLocalStorage(newRecipe) {
 
 if (recipesListLocalStorage == null) {
   recipesCounterList.innerText = "0 przepisów";
-}
-else if (recipesListLocalStorage.length == 1) {
+} else if (recipesListLocalStorage.length == 1) {
   recipesCounterList.innerText = recipesListLocalStorage.length + " przepis";
 } else if (
   recipesListLocalStorage.length >= 2 &&
