@@ -15,7 +15,7 @@ const tBodyRecipe = document.querySelector(".recipes-table-tbody");
 const recipesLocalStorage = localStorage.getItem("recipe_");
 const recipesListLocalStorage = JSON.parse(recipesLocalStorage);
 
-if (localStorage.recipe_ == null) {
+if (localStorage.recipe_ == null || localStorage.recipe_ == "[]") {
     let h2 = document.createElement("h2");
     h2.innerText = "Twoja lista przepisów jest pusta :(";
     tBodyRecipe.appendChild(h2);
@@ -50,8 +50,9 @@ else {
         tBodyRecipe.appendChild(trRecipe);
 
         deleteBtn.addEventListener("click", () => {
-            localStorage.removeItem(e);
-            console.log(e);
+            recipesListLocalStorage.splice(this.data, 1);
+            localStorage.setItem("recipe_", JSON.stringify(recipesListLocalStorage));
+            window.location.reload(false);
         });
     });
 }
