@@ -1,3 +1,4 @@
+// Name local storage
 const nameInput = document.querySelector(".name-local-storage > input");
 const nameBtn = document.querySelector(".name-local-storage > button");
 const user = document.querySelector(".user-name");
@@ -54,6 +55,33 @@ if (localStorage.savedName == null) {
     mainApp.style.background = "none";
     mainApp.style.alignItems = "flex-start";
 }
+
+newScheduleContainer.style.display = "none";
+newRecipeSection.style.display = "none";
+
+nameBtn.addEventListener("click", function (e) {
+  let name = nameInput.value;
+  if (name.trim() && !Number(name) && name.length > 1) {
+    let userName = name;
+    localStorage.setItem("savedName", userName);
+  } else {
+    alert("Podaj poprawnie swoję imię :)");
+  }
+});
+
+buttonAddRecipe.addEventListener("click", function (e) {
+  mainApp.style.display = "none";
+  tableAppSection.style.display = "none";
+  newRecipeSection.style.display = "flex";
+  newRecipeSection.style.flexDirection = "column";
+});
+
+buttonAddSchedule.addEventListener("click", function (e) {
+  mainApp.style.display = "none";
+  tableAppSection.style.display = "none";
+  newScheduleContainer.style.display = "flex";
+  newScheduleContainer.style.flexDirection = "column";
+});
 
 // Schedule
 function Schedule(id, weekNumber, title, description) {
@@ -252,4 +280,182 @@ for (let i = 0; i < deleteWidget.length; i++) {
     deleteWidget[i].addEventListener("click", () => {
         deleteWidget[i].parentElement.style.display = "none";
     });
+}
+
+// Add recipe
+let recipe_name = document.querySelector("#recipe_name");
+let recipe_desc = document.querySelector("#recipe_desc");
+let instruction_butt = document.querySelector("#instruction_butt");
+let ingredient_butt = document.querySelector("#ingredient_butt");
+let instruction_list = document.getElementById("instruction_list");
+let ingredient_list = document.getElementById("ingredient_list");
+const save = document.getElementById("saveAndClose");
+
+instruction_butt.addEventListener("click", function () {
+  let value_instruction = document.getElementById("value_instruction");
+  let newSpan = document.createElement("span");
+  let newSaveIcon = document.createElement("i");
+  let newEditIcon = document.createElement("i");
+  let newTrashIcon = document.createElement("i");
+  newTrashIcon.className = "fas fa-trash-alt";
+  newTrashIcon.style.color = "red";
+  newEditIcon.className = "fas fa-edit";
+  newEditIcon.style.color = "gold";
+  newEditIcon.style.margin = "0 5px";
+  newSaveIcon.className = "fas fa-save";
+  newSaveIcon.style.color = "blue";
+  newSaveIcon.style.margin = "0 5px";
+  newSaveIcon.style.display = "none";
+  newSaveIcon.style.cursor = "pointer";
+  newTrashIcon.style.cursor = "pointer";
+  newEditIcon.style.cursor = "pointer";
+  newSpan.innerText = value_instruction.value;
+  if (!value_instruction.value) {
+    alert("Wpisz jakąś instrukcję :)");
+  } else {
+    let newLi = document.createElement("li");
+    newLi.appendChild(newSpan);
+    newLi.appendChild(newEditIcon);
+    newLi.appendChild(newSaveIcon);
+    newLi.appendChild(newTrashIcon);
+    value_instruction.value = "";
+    instruction_list.appendChild(newLi);
+  }
+  newTrashIcon.addEventListener("click", function () {
+    this.parentElement.style.display = "none";
+  });
+  newEditIcon.addEventListener("click", function () {
+    this.previousSibling.contentEditable = "true";
+    newEditIcon.style.display = "none";
+    newSaveIcon.style.display = "inline";
+  });
+  newSaveIcon.addEventListener("click", function () {
+    this.previousSibling.previousSibling.contentEditable = "false";
+    newSaveIcon.style.display = "none";
+    newEditIcon.style.display = "inline";
+  });
+});
+
+ingredient_butt.addEventListener("click", function () {
+  let value_ingredient = document.getElementById("value_ingredient");
+  let newSpan = document.createElement("span");
+  let newSaveIcon = document.createElement("i");
+  let newEditIcon = document.createElement("i");
+  let newTrashIcon = document.createElement("i");
+  newTrashIcon.className = "fas fa-trash-alt";
+  newTrashIcon.style.color = "red";
+  newEditIcon.className = "fas fa-edit";
+  newEditIcon.style.color = "gold";
+  newEditIcon.style.margin = "0 5px";
+  newSaveIcon.className = "fas fa-save";
+  newSaveIcon.style.color = "blue";
+  newSaveIcon.style.margin = "0 5px";
+  newSaveIcon.style.display = "none";
+  newSaveIcon.style.cursor = "pointer";
+  newTrashIcon.style.cursor = "pointer";
+  newEditIcon.style.cursor = "pointer";
+  newSpan.innerText = value_ingredient.value;
+  if (!value_ingredient.value) {
+    alert("Wpisz jakiś składnik :)");
+  } else {
+    let newLi = document.createElement("li");
+    newLi.appendChild(newSpan);
+    newLi.appendChild(newEditIcon);
+    newLi.appendChild(newSaveIcon);
+    newLi.appendChild(newTrashIcon);
+    value_ingredient.value = "";
+    ingredient_list.appendChild(newLi);
+  }
+  newTrashIcon.addEventListener("click", function () {
+    this.parentElement.style.display = "none";
+  });
+  newEditIcon.addEventListener("click", function () {
+    this.previousSibling.contentEditable = "true";
+    newEditIcon.style.display = "none";
+    newSaveIcon.style.display = "inline";
+  });
+  newSaveIcon.addEventListener("click", function () {
+    this.previousSibling.previousSibling.contentEditable = "false";
+    newSaveIcon.style.display = "none";
+    newEditIcon.style.display = "inline";
+  });
+});
+
+function Recipe(id, title, description) {
+  this.id = id; // id przepisu
+  this.title = title; // nazwa przepisu
+  this.description = description; // opis przepisu
+  this.ingredients = []; // składniki przepisu
+  this.instructions = []; // instrukcje przepisu
+}
+
+const recipesCounterList = document.querySelector(".recipes-counter-list");
+const recipesLocalStorage = localStorage.getItem("recipe_");
+const recipesListLocalStorage = JSON.parse(recipesLocalStorage);
+
+let recipesIdList = 0;
+
+if (localStorage.recipe_ == null) {
+  recipesIdList = 0;
+  recipesCounterList.innerText = 0;
+} else {
+  recipesIdList = recipesListLocalStorage.length;
+  recipesCounterList.innerText = recipesListLocalStorage.length;
+}
+
+function addRecipe(e) {
+  e.preventDefault();
+  if (recipe_name.value && recipe_desc.value) {
+    let newRecipe = new Recipe(
+      recipesIdList + 1,
+      recipe_name.value,
+      recipe_desc.value
+    );
+    let allInstructions = instruction_list.querySelectorAll("li");
+    let allIngredients = ingredient_list.querySelectorAll("li");
+    allInstructions.forEach(function (element) {
+      newRecipe.instructions.push(element.innerText);
+    });
+    allIngredients.forEach(function (element) {
+      newRecipe.ingredients.push(element.innerText);
+    });
+    allRecipes.push(newRecipe);
+    recipe_name.value = "";
+    recipe_desc.value = "";
+    addRecipesToLocalStorage(newRecipe);
+    allInstructions.forEach(function (element) {
+      instruction_list.removeChild(element);
+    });
+    allIngredients.forEach(function (element) {
+      ingredient_list.removeChild(element);
+    });
+  } else if (recipe_name.value.length <= 0 || recipe_desc.value.length <= 0) {
+    alert("Dodaj nazwę i opis!");
+  }
+}
+save.addEventListener("click", addRecipe);
+function addRecipesToLocalStorage(newRecipe) {
+  var dataFromLocalStorage = [];
+  if (localStorage.getItem("recipe_") != null) {
+    dataFromLocalStorage = JSON.parse(localStorage.getItem("recipe_"));
+    dataFromLocalStorage.push(newRecipe);
+    localStorage.setItem("recipe_", JSON.stringify(dataFromLocalStorage));
+  } else {
+    dataFromLocalStorage.push(newRecipe);
+    localStorage.setItem("recipe_", JSON.stringify(dataFromLocalStorage));
+  }
+  location.href = "./app.html";
+}
+
+if (recipesListLocalStorage == null) {
+  recipesCounterList.innerText = "0 przepisów";
+} else if (recipesListLocalStorage.length == 1) {
+  recipesCounterList.innerText = recipesListLocalStorage.length + " przepis";
+} else if (
+  recipesListLocalStorage.length >= 2 &&
+  recipesListLocalStorage.length <= 4
+) {
+  recipesCounterList.innerText = recipesListLocalStorage.length + " przepisy";
+} else {
+  recipesCounterList.innerText = recipesListLocalStorage.length + " przepisów";
 }
