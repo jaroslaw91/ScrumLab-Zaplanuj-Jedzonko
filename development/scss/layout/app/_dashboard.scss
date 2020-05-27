@@ -108,12 +108,14 @@
 }
 
 .table-app-section {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 
 
   .schedule-view {
+    width: 100%;
     background: $white-color;
     border: 1px dashed $dark-grey-color;
     margin-top: 30px;
