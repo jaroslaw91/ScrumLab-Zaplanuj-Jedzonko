@@ -15,23 +15,43 @@ const tBodyRecipe = document.querySelector(".recipes-table-tbody");
 const recipesLocalStorage = localStorage.getItem("recipe_");
 const recipesListLocalStorage = JSON.parse(recipesLocalStorage);
 
-recipesListLocalStorage.forEach(e => {
-    const trRecipe = document.createElement("tr");
-    const tdRecipeId = document.createElement("td");
-    const tdRecipeName = document.createElement("td");
-    const tdRecipeDes = document.createElement("td");
-    const tdRecipeIco = document.createElement("td");
+if (localStorage.recipe_ == null) {
+    let h2 = document.createElement("h2");
+    h2.innerText = "Twoja lista przepisów jest pusta :(";
+    tBodyRecipe.appendChild(h2);
+    tBodyRecipe.style.display = "flex";
+    tBodyRecipe.style.alignItems = "center";
+    tBodyRecipe.style.justifyContent = "center";
+}
+else {
+    recipesListLocalStorage.forEach(e => {
+        const trRecipe = document.createElement("tr");
+        const tdRecipeId = document.createElement("td");
+        const tdRecipeName = document.createElement("td");
+        const tdRecipeDes = document.createElement("td");
+        const tdRecipeIco = document.createElement("td");
 
-    trRecipe.appendChild(tdRecipeId);
-    trRecipe.appendChild(tdRecipeName);
-    trRecipe.appendChild(tdRecipeDes);
-    trRecipe.appendChild(tdRecipeIco);
+        const editBtn = document.createElement("i");
+        const deleteBtn = document.createElement("i");
 
-    tdRecipeId.innerText = e.id;
-    tdRecipeName.innerText = e.title;
-    tdRecipeDes.innerText = e.description;
-    tdRecipeIco.innerHTML = `<i class="fas fa-edit"></i
-    ><i class="fas fa-trash-alt"></i>`;
+        editBtn.className = "fas fa-edit";
+        deleteBtn.className = "fas fa-trash-alt";
 
-    tBodyRecipe.appendChild(trRecipe);
-});
+        trRecipe.appendChild(tdRecipeId);
+        trRecipe.appendChild(tdRecipeName);
+        trRecipe.appendChild(tdRecipeDes);
+        trRecipe.appendChild(tdRecipeIco);
+
+        tdRecipeId.innerText = e.id;
+        tdRecipeName.innerText = e.title;
+        tdRecipeDes.innerText = e.description;
+        tdRecipeIco.appendChild(editBtn);
+        tdRecipeIco.appendChild(deleteBtn);
+        tBodyRecipe.appendChild(trRecipe);
+
+        deleteBtn.addEventListener("click", () => {
+            localStorage.removeItem(e);
+            console.log(e);
+        });
+    });
+}
