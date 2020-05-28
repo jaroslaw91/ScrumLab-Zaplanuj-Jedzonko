@@ -160,6 +160,7 @@
     padding: 1em 0;
 
     .schedule-click-left {
+      cursor: pointer;
       display: flex;
       flex-direction: row-reverse;
       align-items: center;
@@ -171,6 +172,7 @@
     }
 
     .schedule-click-right {
+      cursor: pointer;
       display: flex;
       align-items: center;
 
