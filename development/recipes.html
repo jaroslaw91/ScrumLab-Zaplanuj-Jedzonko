@@ -60,44 +60,45 @@
 
             <section class="new-recipe-section">
                 <div class="new-recipe-header">
-                  <h3>EDYTUJ PRZEPIS</h3>
-                  <a href="#" id="saveAndClose">Zapisz i zamknij</a>
+                    <h3>EDYTUJ PRZEPIS</h3>
+                    <a href="#" id="saveAndClose">Zapisz i zamknij</a>
                 </div>
                 <div class="new-recipe-name">
-                  <h2>Nazwa przepisu</h2>
-                  <input type="text" id="recipe_name" placeholder="Podaj nazwę przepisu" />
+                    <h2>Nazwa przepisu</h2>
+                    <input type="text" id="recipe_name" placeholder="Podaj nazwę przepisu" />
                 </div>
                 <div class="new-recipe-dsc">
-                  <h2>Opis przepisu</h2>
-                  <textarea rows="3" id="recipe_desc"></textarea>
+                    <h2>Opis przepisu</h2>
+                    <textarea rows="3" id="recipe_desc"></textarea>
                 </div>
                 <div class="recipe-adding">
-                  <div class="recipe-instructions">
-                    <div class="new-recipe-instruction">
-                      <h3>INSTRUKCJE</h3>
-                      <div>
-                        <textarea rows="3" id="value_instruction" placeholder="Wpisz instrukcję przyrządzania"></textarea>
-                        <button class="fas fa-plus-square" id="instruction_butt"></button>
-                      </div>
+                    <div class="recipe-instructions">
+                        <div class="new-recipe-instruction">
+                            <h3>INSTRUKCJE</h3>
+                            <div>
+                                <textarea rows="3" id="value_instruction"
+                                    placeholder="Wpisz instrukcję przyrządzania"></textarea>
+                                <button class="fas fa-plus-square" id="instruction_butt"></button>
+                            </div>
+                        </div>
+                        <div class="new-recipe-ingredients">
+                            <h3>SKŁADNIKI</h3>
+                            <div>
+                                <textarea id="value_ingredient" placeholder="Dodaj składnik"></textarea>
+                                <button class="fas fa-plus-square" id="ingredient_butt"></button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="new-recipe-ingredients">
-                      <h3>SKŁADNIKI</h3>
-                      <div>
-                        <textarea id="value_ingredient" placeholder="Dodaj składnik"></textarea>
-                        <button class="fas fa-plus-square" id="ingredient_butt"></button>
-                      </div>
+                    <div class="recipe-lists">
+                        <div class="recipe-instruction-list">
+                            <ol id="instruction_list"></ol>
+                        </div>
+                        <div class="recipe-ingredients-list">
+                            <ul id="ingredient_list"></ul>
+                        </div>
                     </div>
-                  </div>
-                  <div class="recipe-lists">
-                    <div class="recipe-instruction-list">
-                      <ol id="instruction_list"></ol>
-                    </div>
-                    <div class="recipe-ingredients-list">
-                      <ul id="ingredient_list"></ul>
-                    </div>
-                  </div>
                 </div>
-              </section>
+            </section>
 
         </section>
     </section>

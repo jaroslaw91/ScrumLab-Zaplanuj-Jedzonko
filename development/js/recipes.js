@@ -20,7 +20,7 @@ const sectionRecipeNameInput = document.querySelector(".new-recipe-name input");
 const sectionRecipeDscTextarea = document.querySelector(".new-recipe-dsc textarea");
 const instructionList = document.getElementById("instruction_list");
 const ingredientList = document.getElementById("ingredient_list");
-const saveAndClose = document.getElementById("save-and-close")
+const saveAndClose = document.getElementById("saveAndClose");
 
 newRecipeSection.style.display = "none";
 
@@ -46,10 +46,6 @@ else {
 
         editBtn.className = "fas fa-edit";
         deleteBtn.className = "fas fa-trash-alt";
-        saveBtn.className = "fas fa-save";
-        saveBtn.style.color = "gold";
-        saveBtn.style.margin = "0 5px";
-        saveBtn.style.cursor = "pointer";
 
         trRecipe.appendChild(tdRecipeId);
         trRecipe.appendChild(tdRecipeName);
@@ -230,7 +226,37 @@ else {
                     });
                 });
             });
+            saveAndClose.addEventListener("click", function () {
+                updatedRecipeName = sectionRecipeNameInput.value;
+                updatedRecipeDsc = sectionRecipeDscTextarea.value;
+                updatedInstructionElements = document.querySelectorAll("#instruction_list li");
+                updatedIngredientsElements = document.querySelectorAll("#ingredient_list li");
+
+                let updatedInstructionsList = [];
+                let updatedIngredientsList = [];
+
+                updatedInstructionElements.forEach(function (e) {
+                    updatedInstructionsList.push(e.innerText);
+                });
+
+                updatedIngredientsElements.forEach(function (e) {
+                    updatedIngredientsList.push(e.innerText);
+                });
+
+                let currentRecipeValue = localStorage.getItem("recipe_");
+                currentRecipeValue = JSON.parse(currentRecipeValue);
+                console.log(currentRecipeValue);
+                currentRecipeValue[e.id].title = updatedRecipeName;
+                currentRecipeValue[e.id].description = updatedRecipeDsc;
+                currentRecipeValue[e.id].instructions = updatedInstructionsList;
+                currentRecipeValue[e.id].ingredients = updatedIngredientsList;
+
+                localStorage.setItem("recipe_", JSON.stringify(currentRecipeValue).toString());
+
+
+            });
         });
     });
 }
+
 
