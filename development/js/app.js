@@ -83,6 +83,38 @@ buttonAddSchedule.addEventListener("click", function (e) {
   newScheduleContainer.style.flexDirection = "column";
 });
 
+
+
+
+// Schedule - add recipes
+const meal = document.querySelectorAll(".meal");
+const recipesLocalStoragePlans = localStorage.getItem("recipe_");
+const recipesListLocalStoragePlans = JSON.parse(recipesLocalStoragePlans);
+
+if (localStorage.recipe_ == null || localStorage.recipe_ == "[]") {
+  meal.forEach(e => {
+    let optionMeal = document.createElement("option");
+    optionMeal.setAttribute("hidden", "");
+    optionMeal.value = "null";
+    optionMeal.innerText = "Brak przepisów";
+    e.appendChild(optionMeal);
+  })
+}
+else {
+  meal.forEach(e => {
+    recipesListLocalStoragePlans.forEach(el => {
+      let optionMeal = document.createElement("option");
+      optionMeal.value = el.title;
+      optionMeal.innerText = el.title;
+      e.appendChild(optionMeal);
+    });
+
+  });
+}
+
+
+
+
 // Schedule
 function Schedule(id, weekNumber, title, description) {
   this.id = id; // id przepisu
@@ -229,11 +261,14 @@ scheduleLeft.addEventListener('click', function () {
   }
 });
 
+
 const saveButton = document.querySelector('.title-new-schedule a');
 saveButton.addEventListener('click', function () {
   const planNumber = parseInt(document.querySelector('.nr-new-schedule input').value);
   const planDesc = document.querySelector('.dsc-new-schedule textarea').value;
   const planName = document.querySelector('.name-new-schedule input').value;
+
+
   let newPlan = new Schedule(
     Object.entries(localStorage).filter(elem => {
       return elem[0].substring(0, 4) == "plan"
@@ -273,7 +308,9 @@ saveButton.addEventListener('click', function () {
   });
   localStorage.setItem('plan_' + newPlan.id, JSON.stringify(newPlan))
   location.href = "./app.html";
+
 });
+
 
 let deleteWidget = document.querySelectorAll(".delete-widgets");
 for (let i = 0; i < deleteWidget.length; i++) {
