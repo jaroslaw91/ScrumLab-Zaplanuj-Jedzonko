@@ -7,17 +7,18 @@ if (localStorage.savedName == null) {
     user.innerText = localStorage.savedName;
 }
 
-
-
-
 //Recipes list local storage
 const tBodyRecipe = document.querySelector(".recipes-table-tbody");
 const recipesLocalStorage = localStorage.getItem("recipe_");
 const recipesListLocalStorage = JSON.parse(recipesLocalStorage);
 const newRecipeSection = document.querySelector(".new-recipe-section");
-const mainAppSectionContent = document.querySelector(".main-app-section-content");
+const mainAppSectionContent = document.querySelector(
+    ".main-app-section-content"
+);
 const sectionRecipeNameInput = document.querySelector(".new-recipe-name input");
-const sectionRecipeDscTextarea = document.querySelector(".new-recipe-dsc textarea");
+const sectionRecipeDscTextarea = document.querySelector(
+    ".new-recipe-dsc textarea"
+);
 const instructionList = document.getElementById("instruction_list");
 const ingredientList = document.getElementById("ingredient_list");
 const saveAndClose = document.getElementById("saveAndClose");
@@ -31,9 +32,8 @@ if (localStorage.recipe_ == null || localStorage.recipe_ == "[]") {
     tBodyRecipe.style.display = "flex";
     tBodyRecipe.style.alignItems = "center";
     tBodyRecipe.style.justifyContent = "center";
-}
-else {
-    recipesListLocalStorage.forEach(e => {
+} else {
+    recipesListLocalStorage.forEach((e) => {
         const trRecipe = document.createElement("tr");
         const tdRecipeId = document.createElement("td");
         const tdRecipeName = document.createElement("td");
@@ -60,8 +60,6 @@ else {
         tBodyRecipe.appendChild(trRecipe);
         tdRecipeIco.appendChild(saveBtn);
 
-
-
         deleteBtn.addEventListener("click", () => {
             recipesListLocalStorage.splice(this.data, 1);
             localStorage.setItem("recipe_", JSON.stringify(recipesListLocalStorage));
@@ -76,11 +74,7 @@ else {
             sectionRecipeDscTextarea.value = e.description;
 
             e.instructions.forEach(function (e) {
-                let instrLi = document.createElement("li");
-
-                instrLi.innerText = e;
-                instructionList.appendChild(instrLi);
-
+                let newSpan = document.createElement("span");
                 let newSaveIcon = document.createElement("i");
                 let newEditIcon = document.createElement("i");
                 let newTrashIcon = document.createElement("i");
@@ -99,16 +93,30 @@ else {
                 newTrashIcon.style.display = "inline";
                 newEditIcon.style.display = "inline";
 
+                let newLi = document.createElement("li");
+                newLi.innerText = e;
+                newLi.appendChild(newSpan);
+                newLi.appendChild(newEditIcon);
+                newLi.appendChild(newSaveIcon);
+                newLi.appendChild(newTrashIcon);
+                instructionList.appendChild(newLi);
+                newTrashIcon.addEventListener("click", function () {
+                    this.parentElement.style.display = "none";
+                });
+                newEditIcon.addEventListener("click", function () {
+                    this.previousSibling.parentElement.contentEditable = "true";
+                    newEditIcon.style.display = "none";
+                    newSaveIcon.style.display = "inline";
+                });
+                newSaveIcon.addEventListener("click", function () {
+                    this.previousSibling.previousSibling.parentElement.contentEditable =
+                        "false";
+                    newSaveIcon.style.display = "none";
+                    newEditIcon.style.display = "inline";
+                });
 
-                instructionList.appendChild(newEditIcon);
-                instructionList.appendChild(newTrashIcon);
-
-                let recipe_name = document.querySelector("#recipe_name");
-                let recipe_desc = document.querySelector("#recipe_desc");
                 let instruction_butt = document.querySelector("#instruction_butt");
-                let ingredient_butt = document.querySelector("#ingredient_butt");
                 let instruction_list = document.getElementById("instruction_list");
-                let ingredient_list = document.getElementById("ingredient_list");
                 const save = document.getElementById("saveAndClose");
 
                 instruction_butt.addEventListener("click", function () {
@@ -158,11 +166,8 @@ else {
             });
 
             e.ingredients.forEach(function (e) {
-                let ingrLi = document.createElement("li");
-                ingrLi.innerText = e;
-                ingredientList.appendChild(ingrLi);
-
                 let newSaveIcon = document.createElement("i");
+                let newSpan = document.createElement("span");
                 let newEditIcon = document.createElement("i");
                 let newTrashIcon = document.createElement("i");
                 newTrashIcon.className = "fas fa-trash-alt";
@@ -177,10 +182,27 @@ else {
                 newSaveIcon.style.cursor = "pointer";
                 newTrashIcon.style.cursor = "pointer";
                 newEditIcon.style.cursor = "pointer";
-
-                ingredientList.appendChild(newEditIcon);
-                ingredientList.appendChild(newTrashIcon);
-
+                let newLi = document.createElement("li");
+                newLi.innerText = e;
+                newLi.appendChild(newSpan);
+                newLi.appendChild(newEditIcon);
+                newLi.appendChild(newSaveIcon);
+                newLi.appendChild(newTrashIcon);
+                ingredientList.appendChild(newLi);
+                newTrashIcon.addEventListener("click", function () {
+                    this.parentElement.style.display = "none";
+                });
+                newEditIcon.addEventListener("click", function () {
+                    this.previousSibling.parentElement.contentEditable = "true";
+                    newEditIcon.style.display = "none";
+                    newSaveIcon.style.display = "inline";
+                });
+                newSaveIcon.addEventListener("click", function () {
+                    this.previousSibling.previousSibling.parentElement.contentEditable =
+                        "false";
+                    newSaveIcon.style.display = "none";
+                    newEditIcon.style.display = "inline";
+                });
                 ingredient_butt.addEventListener("click", function () {
                     let value_ingredient = document.getElementById("value_ingredient");
                     let newSpan = document.createElement("span");
@@ -229,34 +251,33 @@ else {
             saveAndClose.addEventListener("click", function () {
                 updatedRecipeName = sectionRecipeNameInput.value;
                 updatedRecipeDsc = sectionRecipeDscTextarea.value;
-                updatedInstructionElements = document.querySelectorAll("#instruction_list li");
-                updatedIngredientsElements = document.querySelectorAll("#ingredient_list li");
-
+                updatedInstructionElements = document.querySelectorAll(
+                    "#instruction_list li"
+                );
+                updatedIngredientsElements = document.querySelectorAll(
+                    "#ingredient_list li"
+                );
                 let updatedInstructionsList = [];
                 let updatedIngredientsList = [];
-
                 updatedInstructionElements.forEach(function (e) {
                     updatedInstructionsList.push(e.innerText);
                 });
-
                 updatedIngredientsElements.forEach(function (e) {
                     updatedIngredientsList.push(e.innerText);
                 });
-
                 let currentRecipeValue = localStorage.getItem("recipe_");
                 currentRecipeValue = JSON.parse(currentRecipeValue);
-
-                currentRecipeValue[e.id].title = updatedRecipeName;
-                currentRecipeValue[e.id].description = updatedRecipeDsc;
-                currentRecipeValue[e.id].instructions = updatedInstructionsList;
-                currentRecipeValue[e.id].ingredients = updatedIngredientsList;
-
-                localStorage.setItem("recipe_", JSON.stringify(currentRecipeValue).toString());
-                console.log(currentRecipeValue);
-
+                currentRecipeValue[e.id - 1].title = updatedRecipeName;
+                currentRecipeValue[e.id - 1].description = updatedRecipeDsc;
+                currentRecipeValue[e.id - 1].instructions = updatedInstructionsList;
+                currentRecipeValue[e.id - 1].ingredients = updatedIngredientsList;
+                localStorage.setItem(
+                    "recipe_",
+                    JSON.stringify(currentRecipeValue).toString()
+                );
+                window.location.reload(false);
+                location.href = "./recipes.html";
             });
         });
     });
 }
-
-
