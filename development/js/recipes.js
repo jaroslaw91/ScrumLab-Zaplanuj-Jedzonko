@@ -245,14 +245,14 @@ else {
 
                 let currentRecipeValue = localStorage.getItem("recipe_");
                 currentRecipeValue = JSON.parse(currentRecipeValue);
-                console.log(currentRecipeValue);
+
                 currentRecipeValue[e.id].title = updatedRecipeName;
                 currentRecipeValue[e.id].description = updatedRecipeDsc;
                 currentRecipeValue[e.id].instructions = updatedInstructionsList;
                 currentRecipeValue[e.id].ingredients = updatedIngredientsList;
 
                 localStorage.setItem("recipe_", JSON.stringify(currentRecipeValue).toString());
-
+                console.log(currentRecipeValue);
 
             });
         });
