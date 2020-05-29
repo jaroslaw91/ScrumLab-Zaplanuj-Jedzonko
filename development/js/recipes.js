@@ -1,4 +1,4 @@
-//Name local storage
+//Name localstorage
 const user = document.querySelector(".user-name");
 
 if (localStorage.savedName == null) {
@@ -7,7 +7,26 @@ if (localStorage.savedName == null) {
     user.innerText = localStorage.savedName;
 }
 
-//Recipes list local storage
+
+
+
+// Add recipe
+const buttonAddRecipe = document.querySelector(".button-add-recipe");
+
+buttonAddRecipe.addEventListener("click", function (e) {
+    if (localStorage.savedName == null) {
+        alert("Najpierw podaj swoję imię");
+    }
+    else {
+        localStorage.setItem("addRecipe", "dodaj przepis");
+        location.href = "./app.html";
+    }
+});
+
+
+
+
+//Recipes list localstorage
 const tBodyRecipe = document.querySelector(".recipes-table-tbody");
 const recipesLocalStorage = localStorage.getItem("recipe_");
 const recipesListLocalStorage = JSON.parse(recipesLocalStorage);
