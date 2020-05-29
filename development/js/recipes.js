@@ -62,9 +62,13 @@ if (localStorage.recipe_ == null || localStorage.recipe_ == "[]") {
         const editBtn = document.createElement("i");
         const deleteBtn = document.createElement("i");
         const saveBtn = document.createElement("i");
+        const printBtn = document.createElement("i");
+        const pdfBtn = document.createElement("i");
 
         editBtn.className = "fas fa-edit";
         deleteBtn.className = "fas fa-trash-alt";
+        printBtn.className = "fas fa-print";
+        pdfBtn.className = "fas fa-file-pdf";
 
         trRecipe.appendChild(tdRecipeId);
         trRecipe.appendChild(tdRecipeName);
@@ -76,6 +80,8 @@ if (localStorage.recipe_ == null || localStorage.recipe_ == "[]") {
         tdRecipeDes.innerText = e.description;
         tdRecipeIco.appendChild(editBtn);
         tdRecipeIco.appendChild(deleteBtn);
+        tdRecipeIco.appendChild(printBtn);
+        tdRecipeIco.appendChild(pdfBtn);
         tBodyRecipe.appendChild(trRecipe);
         tdRecipeIco.appendChild(saveBtn);
 
@@ -83,6 +89,13 @@ if (localStorage.recipe_ == null || localStorage.recipe_ == "[]") {
             recipesListLocalStorage.splice(this.data, 1);
             localStorage.setItem("recipe_", JSON.stringify(recipesListLocalStorage));
             window.location.reload(false);
+        });
+
+        printBtn.addEventListener("click", () => {
+            let recipePrint = "";
+
+            document.body.innerText = recipePrint;
+            window.print();
         });
 
         editBtn.addEventListener("click", function () {
