@@ -62,9 +62,11 @@ if (localStorage.recipe_ == null || localStorage.recipe_ == "[]") {
         const editBtn = document.createElement("i");
         const deleteBtn = document.createElement("i");
         const saveBtn = document.createElement("i");
+        const printBtn = document.createElement("i");
 
         editBtn.className = "fas fa-edit";
         deleteBtn.className = "fas fa-trash-alt";
+        printBtn.className = "fas fa-print";
 
         trRecipe.appendChild(tdRecipeId);
         trRecipe.appendChild(tdRecipeName);
@@ -76,12 +78,30 @@ if (localStorage.recipe_ == null || localStorage.recipe_ == "[]") {
         tdRecipeDes.innerText = e.description;
         tdRecipeIco.appendChild(editBtn);
         tdRecipeIco.appendChild(deleteBtn);
+        tdRecipeIco.appendChild(printBtn);
         tBodyRecipe.appendChild(trRecipe);
         tdRecipeIco.appendChild(saveBtn);
 
         deleteBtn.addEventListener("click", () => {
             recipesListLocalStorage.splice(this.data, 1);
             localStorage.setItem("recipe_", JSON.stringify(recipesListLocalStorage));
+            window.location.reload(false);
+        });
+
+        printBtn.addEventListener("click", () => {
+            let recipePrint = `${e.title}
+
+            ${e.description}
+
+            Skladniki:
+            ${e.ingredients.join("\r\n")}
+
+            Instrukcje:
+            ${e.instructions.join("\r\n")}
+            `;
+
+            document.body.innerText = recipePrint;
+            window.print();
             window.location.reload(false);
         });
 

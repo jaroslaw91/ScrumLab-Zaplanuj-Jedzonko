@@ -150,48 +150,49 @@ editButtons.forEach(function (element) {
 
         let saveAndClose = document.querySelector('.title-new-schedule a');
         saveAndClose.addEventListener('click', function () {
-                if (inputDsc.value.length == 0 || inputName.value.length == 0 || inputNr.value.length == 0) {
-                    alert("Wypełnij wszystkie pola :)");
-                } else {
-                    currentSchedule.title = inputName.value;
-                    currentSchedule.weekNumber = inputNr.value;
-                    currentSchedule.description = inputDsc.value;
+            if (inputDsc.value.length == 0 || inputName.value.length == 0 || inputNr.value.length == 0) {
+                alert("Wypełnij wszystkie pola :)");
+            } else {
+                currentSchedule.title = inputName.value;
+                currentSchedule.weekNumber = inputNr.value;
+                currentSchedule.description = inputDsc.value;
 
-                    currentSchedule.monday = [];
-                    currentSchedule.tuesday = [];
-                    currentSchedule.wednesday = [];
-                    currentSchedule.thursday = [];
-                    currentSchedule.friday = [];
-                    currentSchedule.saturday = [];
-                    currentSchedule.sunday = [];
+                currentSchedule.monday = [];
+                currentSchedule.tuesday = [];
+                currentSchedule.wednesday = [];
+                currentSchedule.thursday = [];
+                currentSchedule.friday = [];
+                currentSchedule.saturday = [];
+                currentSchedule.sunday = [];
 
-                    monday.forEach(function (element) {
-                        currentSchedule.monday.push(element.value);
-                    });
-                    tuesday.forEach(function (element) {
-                        currentSchedule.tuesday.push(element.value);
-                    });
-                    wednesday.forEach(function (element) {
-                        currentSchedule.wednesday.push(element.value);
-                    });
-                    thursday.forEach(function (element) {
-                        currentSchedule.thursday.push(element.value);
-                    });
-                    friday.forEach(function (element) {
-                        currentSchedule.friday.push(element.value);
-                    });
-                    saturday.forEach(function (element) {
-                        currentSchedule.saturday.push(element.value);
-                    });
-                    sunday.forEach(function (element) {
-                        currentSchedule.sunday.push(element.value);
-                    });
-                    window.location.reload(false);
-                    location.href = "./schedule.html";
+                monday.forEach(function (element) {
+                    currentSchedule.monday.push(element.value);
+                });
+                tuesday.forEach(function (element) {
+                    currentSchedule.tuesday.push(element.value);
+                });
+                wednesday.forEach(function (element) {
+                    currentSchedule.wednesday.push(element.value);
+                });
+                thursday.forEach(function (element) {
+                    currentSchedule.thursday.push(element.value);
+                });
+                friday.forEach(function (element) {
+                    currentSchedule.friday.push(element.value);
+                });
+                saturday.forEach(function (element) {
+                    currentSchedule.saturday.push(element.value);
+                });
+                sunday.forEach(function (element) {
+                    currentSchedule.sunday.push(element.value);
+                });
 
+                localStorage.setItem(sorted[counter][0], JSON.stringify(currentSchedule));
 
-                }
+                window.location.reload(false);
+                location.href = "./schedules.html";
             }
+        }
         )
 
     })
