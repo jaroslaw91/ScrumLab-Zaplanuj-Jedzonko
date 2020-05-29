@@ -1,4 +1,4 @@
-//Name local storage
+//Name localstorage
 const user = document.querySelector(".user-name");
 
 if (localStorage.savedName == null) {
@@ -10,7 +10,23 @@ if (localStorage.savedName == null) {
 
 
 
-//Schedules list local storage
+// Add schedule
+const buttonAddSchedule = document.querySelector(".button-add-schedule");
+
+buttonAddSchedule.addEventListener("click", function (e) {
+    if (localStorage.savedName == null) {
+        alert("Najpierw podaj swoję imię");
+    }
+    else {
+        localStorage.setItem("addSchedule", "dodaj plan");
+        location.href = "./app.html";
+    }
+});
+
+
+
+
+//Schedules list localstorage
 const tBodySchedule = document.querySelector(".schedule-table-tbody");
 
 let sorted = Object.entries(localStorage).filter(elem => {
@@ -18,7 +34,6 @@ let sorted = Object.entries(localStorage).filter(elem => {
 }).sort((a, b) => {
     return parseInt(a[0].substring(5, 10)) - parseInt(b[0].substring(5, 10))
 });
-
 
 if (sorted.length == 0) {
     let h2 = document.createElement("h2");
@@ -30,7 +45,6 @@ if (sorted.length == 0) {
 }
 else {
     sorted.forEach(e => {
-        console.log(e[0]);
         const scheduleListLocalStorage = JSON.parse(e[1]);
         const trSchedule = document.createElement("tr");
         const tdScheduleId = document.createElement("td");
