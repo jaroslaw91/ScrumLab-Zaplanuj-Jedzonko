@@ -237,36 +237,36 @@ saveButton.addEventListener('click', function () {
       planName,
       planDesc
     );
-    const monday = document.querySelectorAll('.monday td select option');
-    const tuesday = document.querySelectorAll('.tuesday td select option');
-    const wednesday = document.querySelectorAll('.wednesday td select option');
-    const thursday = document.querySelectorAll('.thursday td select option');
-    const friday = document.querySelectorAll('.friday td select option');
-    const saturday = document.querySelectorAll('.saturday td select option');
-    const sunday = document.querySelectorAll('.sunday td select option');
+    const monday = document.querySelectorAll('.monday td select');
+    const tuesday = document.querySelectorAll('.tuesday td select');
+    const wednesday = document.querySelectorAll('.wednesday td select');
+    const thursday = document.querySelectorAll('.thursday td select');
+    const friday = document.querySelectorAll('.friday td select');
+    const saturday = document.querySelectorAll('.saturday td select');
+    const sunday = document.querySelectorAll('.sunday td select');
 
     monday.forEach(function (element) {
-      newPlan.monday.push(element.value);
+      newPlan.monday.push(element.options[element.selectedIndex].value);
     });
     tuesday.forEach(function (element) {
-      newPlan.tuesday.push(element.value);
+      newPlan.tuesday.push(element.options[element.selectedIndex].value);
     });
     wednesday.forEach(function (element) {
-      newPlan.wednesday.push(element.value);
+      newPlan.wednesday.push(element.options[element.selectedIndex].value);
     });
     thursday.forEach(function (element) {
-      newPlan.thursday.push(element.value);
+      newPlan.thursday.push(element.options[element.selectedIndex].value);
     });
     friday.forEach(function (element) {
-      newPlan.friday.push(element.value);
+      newPlan.friday.push(element.options[element.selectedIndex].value);
     });
     saturday.forEach(function (element) {
-      newPlan.saturday.push(element.value);
+      newPlan.saturday.push(element.options[element.selectedIndex].value);
     });
     sunday.forEach(function (element) {
-      newPlan.sunday.push(element.value);
+      newPlan.sunday.push(element.options[element.selectedIndex].value);
     });
-    localStorage.setItem('plan_' + newPlan.id, JSON.stringify(newPlan))
+    localStorage.setItem('plan_' + newPlan.id, JSON.stringify(newPlan));
     location.href = "./app.html";
   }
 });
