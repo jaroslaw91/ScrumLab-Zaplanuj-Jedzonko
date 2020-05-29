@@ -63,12 +63,10 @@ if (localStorage.recipe_ == null || localStorage.recipe_ == "[]") {
         const deleteBtn = document.createElement("i");
         const saveBtn = document.createElement("i");
         const printBtn = document.createElement("i");
-        const pdfBtn = document.createElement("i");
 
         editBtn.className = "fas fa-edit";
         deleteBtn.className = "fas fa-trash-alt";
         printBtn.className = "fas fa-print";
-        pdfBtn.className = "fas fa-file-pdf";
 
         trRecipe.appendChild(tdRecipeId);
         trRecipe.appendChild(tdRecipeName);
@@ -81,7 +79,6 @@ if (localStorage.recipe_ == null || localStorage.recipe_ == "[]") {
         tdRecipeIco.appendChild(editBtn);
         tdRecipeIco.appendChild(deleteBtn);
         tdRecipeIco.appendChild(printBtn);
-        tdRecipeIco.appendChild(pdfBtn);
         tBodyRecipe.appendChild(trRecipe);
         tdRecipeIco.appendChild(saveBtn);
 
@@ -92,10 +89,20 @@ if (localStorage.recipe_ == null || localStorage.recipe_ == "[]") {
         });
 
         printBtn.addEventListener("click", () => {
-            let recipePrint = "";
+            let recipePrint = `${e.title}
+
+            ${e.description}
+
+            Skladniki:
+            ${e.ingredients.join("\r\n")}
+
+            Instrukcje:
+            ${e.instructions.join("\r\n")}
+            `;
 
             document.body.innerText = recipePrint;
             window.print();
+            window.location.reload(false);
         });
 
         editBtn.addEventListener("click", function () {
