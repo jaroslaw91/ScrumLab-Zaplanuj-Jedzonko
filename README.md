@@ -1,5 +1,5 @@
 # ScrumLab-Zaplanuj-Jedzonko
-"Zaplanuj Jedzonko"is a front-end Scrum lab project from Coders Lab.
+"Zaplanuj Jedzonko" is a front-end Scrum lab project from Coders Lab.
 
 ## Technologies
 * HTML
